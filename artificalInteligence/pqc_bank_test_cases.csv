@@ -1,0 +1,769 @@
+Bank,Adoption,Algo_pref,Bank_HW,Bank_Size,Enterprise,Budget,Infra,Legacy,Deployment,Direction,Bank relation
+ICICI,PQC,PQC only,New,Big,Big,High,New,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,New,Absent,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,High,Old,Absent,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,New,Absent,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Medium,Old,Absent,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,New,Absent,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Big,Low,Old,Absent,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,New,Absent,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,High,Old,Absent,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,New,Absent,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Medium,Old,Absent,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,New,Absent,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Present,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Present,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Present,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Present,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Present,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Present,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Present,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Present,Different servers,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Absent,Same server,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Absent,Same server,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Absent,Same server,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Absent,Same server,Server→User,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Absent,Different servers,User→Server,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Absent,Different servers,User→Server,Different bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Absent,Different servers,Server→User,Same bank
+ICICI,PQC,PQC only,New,Big,Small,Low,Old,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,New,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,High,Old,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,New,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Medium,Old,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,New,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Big,Low,Old,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,New,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,High,Old,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,New,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Medium,Old,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,New,Absent,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Present,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Present,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Present,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Present,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Present,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Present,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Present,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Present,Different servers,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Absent,Same server,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Absent,Same server,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Absent,Same server,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Absent,Same server,Server→User,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Absent,Different servers,User→Server,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Absent,Different servers,User→Server,Different bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Absent,Different servers,Server→User,Same bank
+HDFC,Hybrid,Classical + PQC,Mid,Big,Small,Low,Old,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,New,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,High,Old,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,New,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Medium,Old,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,New,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Big,Low,Old,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,New,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,High,Old,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,New,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Medium,Old,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,New,Absent,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Present,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Present,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Present,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Present,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Present,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Present,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Present,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Present,Different servers,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Absent,Same server,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Absent,Same server,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Absent,Same server,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Absent,Same server,Server→User,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Absent,Different servers,User→Server,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Absent,Different servers,User→Server,Different bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Absent,Different servers,Server→User,Same bank
+SBI,Classical,Classical only,Old,Big,Small,Low,Old,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,New,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,High,Old,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,New,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Medium,Old,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,New,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Big,Low,Old,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,New,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,High,Old,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,New,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Medium,Old,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,New,Absent,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Present,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Present,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Present,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Present,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Present,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Present,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Present,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Present,Different servers,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Absent,Same server,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Absent,Same server,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Absent,Same server,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Absent,Same server,Server→User,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Absent,Different servers,User→Server,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Absent,Different servers,User→Server,Different bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Absent,Different servers,Server→User,Same bank
+Saraswat,Classical,Classical only,Latest,Small,Small,Low,Old,Absent,Different servers,Server→User,Different bank

@@ -1,0 +1,97 @@
+From Bank,To Bank,Enterprise,Infra,Budget,Legacy,Deployment,Sender Algo,Receiver Algo,HW_Base,HW_Budget,HW_Infra
+ICICI,ICICI,big,new,High,Present,Same server,PQC,PQC,High-performance FPGA/ASIC,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+ICICI,ICICI,big,new,High,Absent,Same server,PQC,PQC,High-performance FPGA/ASIC,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+ICICI,ICICI,big,new,Medium,Present,Same server,PQC,PQC,High-performance FPGA/ASIC,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+ICICI,ICICI,big,new,Medium,Absent,Same server,PQC,PQC,High-performance FPGA/ASIC,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+ICICI,ICICI,big,new,Low,Present,Same server,PQC,PQC,High-performance FPGA/ASIC,Low-cost CPU only,Supports advanced distributed crypto infra
+ICICI,ICICI,big,new,Low,Absent,Same server,PQC,PQC,High-performance FPGA/ASIC,Low-cost CPU only,Supports advanced distributed crypto infra
+ICICI,HDFC,big,new,High,Present,Different servers,PQC,Hybrid (downgraded),High-performance FPGA/ASIC,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+ICICI,HDFC,big,new,High,Absent,Different servers,PQC,Hybrid (downgraded),High-performance FPGA/ASIC,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+ICICI,HDFC,big,new,Medium,Present,Different servers,PQC,Hybrid (downgraded),High-performance FPGA/ASIC,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+ICICI,HDFC,big,new,Medium,Absent,Different servers,PQC,Hybrid (downgraded),High-performance FPGA/ASIC,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+ICICI,HDFC,big,new,Low,Present,Different servers,PQC,Hybrid (downgraded),High-performance FPGA/ASIC,Low-cost CPU only,Supports advanced distributed crypto infra
+ICICI,HDFC,big,new,Low,Absent,Different servers,PQC,Hybrid (downgraded),High-performance FPGA/ASIC,Low-cost CPU only,Supports advanced distributed crypto infra
+ICICI,SBI,big,new,High,Present,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+ICICI,SBI,big,new,High,Absent,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+ICICI,SBI,big,new,Medium,Present,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+ICICI,SBI,big,new,Medium,Absent,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+ICICI,SBI,big,new,Low,Present,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Low-cost CPU only,Supports advanced distributed crypto infra
+ICICI,SBI,big,new,Low,Absent,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Low-cost CPU only,Supports advanced distributed crypto infra
+ICICI,Saraswat,big,new,High,Present,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+ICICI,Saraswat,big,new,High,Absent,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+ICICI,Saraswat,big,new,Medium,Present,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+ICICI,Saraswat,big,new,Medium,Absent,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+ICICI,Saraswat,big,new,Low,Present,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Low-cost CPU only,Supports advanced distributed crypto infra
+ICICI,Saraswat,big,new,Low,Absent,Different servers,PQC,Classical (downgraded),High-performance FPGA/ASIC,Low-cost CPU only,Supports advanced distributed crypto infra
+HDFC,ICICI,big,mid,High,Present,Different servers,Hybrid,PQC (upgraded),Mid-tier FPGA + CPU combo,Enterprise HSM + FPGA,Supports moderate hybrid infra
+HDFC,ICICI,big,mid,High,Absent,Different servers,Hybrid,PQC (upgraded),Mid-tier FPGA + CPU combo,Enterprise HSM + FPGA,Supports moderate hybrid infra
+HDFC,ICICI,big,mid,Medium,Present,Different servers,Hybrid,PQC (upgraded),Mid-tier FPGA + CPU combo,Shared FPGA + CPU cluster,Supports moderate hybrid infra
+HDFC,ICICI,big,mid,Medium,Absent,Different servers,Hybrid,PQC (upgraded),Mid-tier FPGA + CPU combo,Shared FPGA + CPU cluster,Supports moderate hybrid infra
+HDFC,ICICI,big,mid,Low,Present,Different servers,Hybrid,PQC (upgraded),Mid-tier FPGA + CPU combo,Low-cost CPU only,Supports moderate hybrid infra
+HDFC,ICICI,big,mid,Low,Absent,Different servers,Hybrid,PQC (upgraded),Mid-tier FPGA + CPU combo,Low-cost CPU only,Supports moderate hybrid infra
+HDFC,HDFC,big,mid,High,Present,Same server,Hybrid,Hybrid,Mid-tier FPGA + CPU combo,Enterprise HSM + FPGA,Supports moderate hybrid infra
+HDFC,HDFC,big,mid,High,Absent,Same server,Hybrid,Hybrid,Mid-tier FPGA + CPU combo,Enterprise HSM + FPGA,Supports moderate hybrid infra
+HDFC,HDFC,big,mid,Medium,Present,Same server,Hybrid,Hybrid,Mid-tier FPGA + CPU combo,Shared FPGA + CPU cluster,Supports moderate hybrid infra
+HDFC,HDFC,big,mid,Medium,Absent,Same server,Hybrid,Hybrid,Mid-tier FPGA + CPU combo,Shared FPGA + CPU cluster,Supports moderate hybrid infra
+HDFC,HDFC,big,mid,Low,Present,Same server,Hybrid,Hybrid,Mid-tier FPGA + CPU combo,Low-cost CPU only,Supports moderate hybrid infra
+HDFC,HDFC,big,mid,Low,Absent,Same server,Hybrid,Hybrid,Mid-tier FPGA + CPU combo,Low-cost CPU only,Supports moderate hybrid infra
+HDFC,SBI,big,mid,High,Present,Different servers,Hybrid,Classical (downgraded),Mid-tier FPGA + CPU combo,Enterprise HSM + FPGA,Supports moderate hybrid infra
+HDFC,SBI,big,mid,High,Absent,Different servers,Hybrid,Classical (downgraded),Mid-tier FPGA + CPU combo,Enterprise HSM + FPGA,Supports moderate hybrid infra
+HDFC,SBI,big,mid,Medium,Present,Different servers,Hybrid,Classical (downgraded),Mid-tier FPGA + CPU combo,Shared FPGA + CPU cluster,Supports moderate hybrid infra
+HDFC,SBI,big,mid,Medium,Absent,Different servers,Hybrid,Classical (downgraded),Mid-tier FPGA + CPU combo,Shared FPGA + CPU cluster,Supports moderate hybrid infra
+HDFC,SBI,big,mid,Low,Present,Different servers,Hybrid,Classical (downgraded),Mid-tier FPGA + CPU combo,Low-cost CPU only,Supports moderate hybrid infra
+HDFC,SBI,big,mid,Low,Absent,Different servers,Hybrid,Classical (downgraded),Mid-tier FPGA + CPU combo,Low-cost CPU only,Supports moderate hybrid infra
+HDFC,Saraswat,big,mid,High,Present,Different servers,Hybrid,Classical,Mid-tier FPGA + CPU combo,Enterprise HSM + FPGA,Supports moderate hybrid infra
+HDFC,Saraswat,big,mid,High,Absent,Different servers,Hybrid,Classical,Mid-tier FPGA + CPU combo,Enterprise HSM + FPGA,Supports moderate hybrid infra
+HDFC,Saraswat,big,mid,Medium,Present,Different servers,Hybrid,Classical,Mid-tier FPGA + CPU combo,Shared FPGA + CPU cluster,Supports moderate hybrid infra
+HDFC,Saraswat,big,mid,Medium,Absent,Different servers,Hybrid,Classical,Mid-tier FPGA + CPU combo,Shared FPGA + CPU cluster,Supports moderate hybrid infra
+HDFC,Saraswat,big,mid,Low,Present,Different servers,Hybrid,Classical,Mid-tier FPGA + CPU combo,Low-cost CPU only,Supports moderate hybrid infra
+HDFC,Saraswat,big,mid,Low,Absent,Different servers,Hybrid,Classical,Mid-tier FPGA + CPU combo,Low-cost CPU only,Supports moderate hybrid infra
+SBI,ICICI,big,old,High,Present,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Legacy infra with CPU-only support
+SBI,ICICI,big,old,High,Absent,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Legacy infra with CPU-only support
+SBI,ICICI,big,old,Medium,Present,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Legacy infra with CPU-only support
+SBI,ICICI,big,old,Medium,Absent,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Legacy infra with CPU-only support
+SBI,ICICI,big,old,Low,Present,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Low-cost CPU only,Legacy infra with CPU-only support
+SBI,ICICI,big,old,Low,Absent,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Low-cost CPU only,Legacy infra with CPU-only support
+SBI,HDFC,big,old,High,Present,Different servers,Classical,Hybrid (upgraded),Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Legacy infra with CPU-only support
+SBI,HDFC,big,old,High,Absent,Different servers,Classical,Hybrid (upgraded),Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Legacy infra with CPU-only support
+SBI,HDFC,big,old,Medium,Present,Different servers,Classical,Hybrid (upgraded),Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Legacy infra with CPU-only support
+SBI,HDFC,big,old,Medium,Absent,Different servers,Classical,Hybrid (upgraded),Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Legacy infra with CPU-only support
+SBI,HDFC,big,old,Low,Present,Different servers,Classical,Hybrid (upgraded),Commodity CPU or Low-end FPGA,Low-cost CPU only,Legacy infra with CPU-only support
+SBI,HDFC,big,old,Low,Absent,Different servers,Classical,Hybrid (upgraded),Commodity CPU or Low-end FPGA,Low-cost CPU only,Legacy infra with CPU-only support
+SBI,SBI,big,old,High,Present,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Legacy infra with CPU-only support
+SBI,SBI,big,old,High,Absent,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Legacy infra with CPU-only support
+SBI,SBI,big,old,Medium,Present,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Legacy infra with CPU-only support
+SBI,SBI,big,old,Medium,Absent,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Legacy infra with CPU-only support
+SBI,SBI,big,old,Low,Present,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Low-cost CPU only,Legacy infra with CPU-only support
+SBI,SBI,big,old,Low,Absent,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Low-cost CPU only,Legacy infra with CPU-only support
+SBI,Saraswat,big,old,High,Present,Different servers,Classical,Classical (upgraded),Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Legacy infra with CPU-only support
+SBI,Saraswat,big,old,High,Absent,Different servers,Classical,Classical (upgraded),Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Legacy infra with CPU-only support
+SBI,Saraswat,big,old,Medium,Present,Different servers,Classical,Classical (upgraded),Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Legacy infra with CPU-only support
+SBI,Saraswat,big,old,Medium,Absent,Different servers,Classical,Classical (upgraded),Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Legacy infra with CPU-only support
+SBI,Saraswat,big,old,Low,Present,Different servers,Classical,Classical (upgraded),Commodity CPU or Low-end FPGA,Low-cost CPU only,Legacy infra with CPU-only support
+SBI,Saraswat,big,old,Low,Absent,Different servers,Classical,Classical (upgraded),Commodity CPU or Low-end FPGA,Low-cost CPU only,Legacy infra with CPU-only support
+Saraswat,ICICI,small,latest,High,Present,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+Saraswat,ICICI,small,latest,High,Absent,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+Saraswat,ICICI,small,latest,Medium,Present,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+Saraswat,ICICI,small,latest,Medium,Absent,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+Saraswat,ICICI,small,latest,Low,Present,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Low-cost CPU only,Supports advanced distributed crypto infra
+Saraswat,ICICI,small,latest,Low,Absent,Different servers,Classical,PQC (upgraded),Commodity CPU or Low-end FPGA,Low-cost CPU only,Supports advanced distributed crypto infra
+Saraswat,HDFC,small,latest,High,Present,Different servers,Classical,Hybrid,Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+Saraswat,HDFC,small,latest,High,Absent,Different servers,Classical,Hybrid,Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+Saraswat,HDFC,small,latest,Medium,Present,Different servers,Classical,Hybrid,Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+Saraswat,HDFC,small,latest,Medium,Absent,Different servers,Classical,Hybrid,Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+Saraswat,HDFC,small,latest,Low,Present,Different servers,Classical,Hybrid,Commodity CPU or Low-end FPGA,Low-cost CPU only,Supports advanced distributed crypto infra
+Saraswat,HDFC,small,latest,Low,Absent,Different servers,Classical,Hybrid,Commodity CPU or Low-end FPGA,Low-cost CPU only,Supports advanced distributed crypto infra
+Saraswat,SBI,small,latest,High,Present,Different servers,Classical,Classical (downgraded),Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+Saraswat,SBI,small,latest,High,Absent,Different servers,Classical,Classical (downgraded),Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+Saraswat,SBI,small,latest,Medium,Present,Different servers,Classical,Classical (downgraded),Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+Saraswat,SBI,small,latest,Medium,Absent,Different servers,Classical,Classical (downgraded),Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+Saraswat,SBI,small,latest,Low,Present,Different servers,Classical,Classical (downgraded),Commodity CPU or Low-end FPGA,Low-cost CPU only,Supports advanced distributed crypto infra
+Saraswat,SBI,small,latest,Low,Absent,Different servers,Classical,Classical (downgraded),Commodity CPU or Low-end FPGA,Low-cost CPU only,Supports advanced distributed crypto infra
+Saraswat,Saraswat,small,latest,High,Present,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+Saraswat,Saraswat,small,latest,High,Absent,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Enterprise HSM + FPGA,Supports advanced distributed crypto infra
+Saraswat,Saraswat,small,latest,Medium,Present,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+Saraswat,Saraswat,small,latest,Medium,Absent,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Shared FPGA + CPU cluster,Supports advanced distributed crypto infra
+Saraswat,Saraswat,small,latest,Low,Present,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Low-cost CPU only,Supports advanced distributed crypto infra
+Saraswat,Saraswat,small,latest,Low,Absent,Same server,Classical,Classical,Commodity CPU or Low-end FPGA,Low-cost CPU only,Supports advanced distributed crypto infra

@@ -1,0 +1,410 @@
+<svg width="1689pt" height="732pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" style="overflow: hidden; "><g id="viewport-20250923002352800" class="svg-pan-zoom_viewport" transform="matrix(0.3776287518718667,0,0,0.3776287518718667,1.0000339530161468,153.7123533256725)" style="transform: matrix(0.377629, 0, 0, 0.377629, 1.00003, 153.712);">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 728.4)">
+<title>AppFlow</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-728.4 1685.49,-728.4 1685.49,4 -4,4"></polygon>
+<text text-anchor="middle" x="840.74" y="-709.6" font-family="Times,serif" font-size="12.00">Quantum Secure Payment Gateway - End-to-End Flow</text>
+<g id="clust2" class="cluster">
+<title>cluster_server</title>
+<path fill="none" stroke="#cfd8dc" d="M341.83,-8C341.83,-8 818.7,-8 818.7,-8 824.7,-8 830.7,-14 830.7,-20 830.7,-20 830.7,-418 830.7,-418 830.7,-424 824.7,-430 818.7,-430 818.7,-430 341.83,-430 341.83,-430 335.83,-430 329.83,-424 329.83,-418 329.83,-418 329.83,-20 329.83,-20 329.83,-14 335.83,-8 341.83,-8"></path>
+<text text-anchor="middle" x="580.26" y="-415.2" font-family="Times,serif" font-size="12.00" fill="#37474f">Server (Express + SQLite)</text>
+</g>
+<g id="clust1" class="cluster">
+<title>cluster_client</title>
+<path fill="none" stroke="#cfd8dc" d="M20,-438C20,-438 1661.49,-438 1661.49,-438 1667.49,-438 1673.49,-444 1673.49,-450 1673.49,-450 1673.49,-682 1673.49,-682 1673.49,-688 1667.49,-694 1661.49,-694 1661.49,-694 20,-694 20,-694 14,-694 8,-688 8,-682 8,-682 8,-450 8,-450 8,-444 14,-438 20,-438"></path>
+<text text-anchor="middle" x="840.74" y="-679.2" font-family="Times,serif" font-size="12.00" fill="#37474f">Client (Browser)</text>
+</g>
+<!-- start -->
+<g id="node1" class="node">
+<title>start</title>
+<ellipse fill="#f9f9f9" stroke="#666666" cx="71.69" cy="-584" rx="18" ry="18"></ellipse>
+</g>
+<!-- UI_Login -->
+<g id="node2" class="node">
+<title>UI_Login</title>
+<path fill="#f9f9f9" stroke="#666666" d="M275.53,-544C275.53,-544 189.68,-544 189.68,-544 183.68,-544 177.68,-538 177.68,-532 177.68,-532 177.68,-520 177.68,-520 177.68,-514 183.68,-508 189.68,-508 189.68,-508 275.53,-508 275.53,-508 281.53,-508 287.53,-514 287.53,-520 287.53,-520 287.53,-532 287.53,-532 287.53,-538 281.53,-544 275.53,-544"></path>
+<text text-anchor="middle" x="232.6" y="-529.3" font-family="Helvetica,sans-Serif" font-size="11.00">Open Login Page</text>
+<text text-anchor="middle" x="232.6" y="-516.1" font-family="Helvetica,sans-Serif" font-size="11.00">login.html + login.js</text>
+</g>
+<!-- start&#45;&gt;UI_Login -->
+<g id="edge1" class="edge">
+<title>start-&gt;UI_Login</title>
+<path fill="none" stroke="#444444" d="M89.1,-578.01C108.9,-570.78 143.28,-558.24 173.31,-547.28"></path>
+<polygon fill="#444444" stroke="#444444" points="174.08,-549.6 179.82,-544.9 172.4,-545 174.08,-549.6"></polygon>
+</g>
+<!-- UI_LoginSubmit -->
+<g id="node3" class="node">
+<title>UI_LoginSubmit</title>
+<path fill="#f9f9f9" stroke="#666666" d="M471.75,-482C471.75,-482 351.35,-482 351.35,-482 345.35,-482 339.35,-476 339.35,-470 339.35,-470 339.35,-458 339.35,-458 339.35,-452 345.35,-446 351.35,-446 351.35,-446 471.75,-446 471.75,-446 477.75,-446 483.75,-452 483.75,-458 483.75,-458 483.75,-470 483.75,-470 483.75,-476 477.75,-482 471.75,-482"></path>
+<text text-anchor="middle" x="411.55" y="-467.3" font-family="Helvetica,sans-Serif" font-size="11.00">Enter username/password</text>
+<text text-anchor="middle" x="411.55" y="-454.1" font-family="Helvetica,sans-Serif" font-size="11.00">Click Login</text>
+</g>
+<!-- UI_Login&#45;&gt;UI_LoginSubmit -->
+<g id="edge2" class="edge">
+<title>UI_Login-&gt;UI_LoginSubmit</title>
+<path fill="none" stroke="#444444" d="M283.46,-507.59C298.35,-502.16 314.73,-496.27 329.83,-491 335.39,-489.06 341.18,-487.07 346.99,-485.09"></path>
+<polygon fill="#444444" stroke="#444444" points="347.63,-487.46 353.47,-482.89 346.06,-482.82 347.63,-487.46"></polygon>
+</g>
+<!-- S_Login -->
+<g id="node19" class="node">
+<title>S_Login</title>
+<path fill="#f9f9f9" stroke="#666666" d="M459.83,-183.8C459.83,-183.8 363.26,-183.8 363.26,-183.8 357.26,-183.8 351.26,-177.8 351.26,-171.8 351.26,-171.8 351.26,-148.2 351.26,-148.2 351.26,-142.2 357.26,-136.2 363.26,-136.2 363.26,-136.2 459.83,-136.2 459.83,-136.2 465.83,-136.2 471.83,-142.2 471.83,-148.2 471.83,-148.2 471.83,-171.8 471.83,-171.8 471.83,-177.8 465.83,-183.8 459.83,-183.8"></path>
+<text text-anchor="middle" x="411.55" y="-169.9" font-family="Helvetica,sans-Serif" font-size="11.00">POST /login</text>
+<text text-anchor="middle" x="411.55" y="-156.7" font-family="Helvetica,sans-Serif" font-size="11.00">Validate user</text>
+<text text-anchor="middle" x="411.55" y="-143.5" font-family="Helvetica,sans-Serif" font-size="11.00">Set signed cookie uid</text>
+</g>
+<!-- UI_LoginSubmit&#45;&gt;S_Login -->
+<g id="edge3" class="edge">
+<title>UI_LoginSubmit-&gt;S_Login</title>
+<path fill="none" stroke="#444444" d="M338.89,-447.58C329.21,-442.09 320.76,-434.77 315.33,-425 303.29,-403.35 303.29,-223.65 315.33,-202 321.62,-190.7 331.81,-182.43 343.26,-176.39"></path>
+<polygon fill="#444444" stroke="#444444" points="344.31,-178.61 349.58,-173.39 342.2,-174.19 344.31,-178.61"></polygon>
+</g>
+<!-- UI_LoginError -->
+<g id="node4" class="node">
+<title>UI_LoginError</title>
+<path fill="#f9f9f9" stroke="#666666" d="M115.37,-482C115.37,-482 28,-482 28,-482 22,-482 16,-476 16,-470 16,-470 16,-458 16,-458 16,-452 22,-446 28,-446 28,-446 115.37,-446 115.37,-446 121.37,-446 127.37,-452 127.37,-458 127.37,-458 127.37,-470 127.37,-470 127.37,-476 121.37,-482 115.37,-482"></path>
+<text text-anchor="middle" x="71.69" y="-467.3" font-family="Helvetica,sans-Serif" font-size="11.00">Show error</text>
+<text text-anchor="middle" x="71.69" y="-454.1" font-family="Helvetica,sans-Serif" font-size="11.00">(Invalid credentials)</text>
+</g>
+<!-- end -->
+<g id="node18" class="node">
+<title>end</title>
+<ellipse fill="#f9f9f9" stroke="#666666" cx="232.6" cy="-468" rx="18" ry="18"></ellipse>
+<ellipse fill="none" stroke="#666666" cx="232.6" cy="-468" rx="22" ry="22"></ellipse>
+</g>
+<!-- UI_LoginError&#45;&gt;end -->
+<g id="edge33" class="edge">
+<title>UI_LoginError-&gt;end</title>
+<path fill="none" stroke="#444444" d="M127.82,-465.39C152.77,-466.02 181.25,-466.73 202.06,-467.26"></path>
+<polygon fill="#444444" stroke="#444444" points="201.9,-469.7 208.96,-467.43 202.02,-464.8 201.9,-469.7"></polygon>
+</g>
+<!-- UI_Dashboard -->
+<g id="node5" class="node">
+<title>UI_Dashboard</title>
+<path fill="#f9f9f9" stroke="#666666" d="M115.37,-656C115.37,-656 28,-656 28,-656 22,-656 16,-650 16,-644 16,-644 16,-632 16,-632 16,-626 22,-620 28,-620 28,-620 115.37,-620 115.37,-620 121.37,-620 127.37,-626 127.37,-632 127.37,-632 127.37,-644 127.37,-644 127.37,-650 121.37,-656 115.37,-656"></path>
+<text text-anchor="middle" x="71.69" y="-641.3" font-family="Helvetica,sans-Serif" font-size="11.00">Open Dashboard</text>
+<text text-anchor="middle" x="71.69" y="-628.1" font-family="Helvetica,sans-Serif" font-size="11.00">/dashboard (HTML)</text>
+</g>
+<!-- UI_Profile -->
+<g id="node6" class="node">
+<title>UI_Profile</title>
+<path fill="#f9f9f9" stroke="#666666" d="M288.83,-609.8C288.83,-609.8 176.37,-609.8 176.37,-609.8 170.37,-609.8 164.37,-603.8 164.37,-597.8 164.37,-597.8 164.37,-574.2 164.37,-574.2 164.37,-568.2 170.37,-562.2 176.37,-562.2 176.37,-562.2 288.83,-562.2 288.83,-562.2 294.83,-562.2 300.83,-568.2 300.83,-574.2 300.83,-574.2 300.83,-597.8 300.83,-597.8 300.83,-603.8 294.83,-609.8 288.83,-609.8"></path>
+<text text-anchor="middle" x="232.6" y="-595.9" font-family="Helvetica,sans-Serif" font-size="11.00">Fetch profile</text>
+<text text-anchor="middle" x="232.6" y="-582.7" font-family="Helvetica,sans-Serif" font-size="11.00">GET /api/me</text>
+<text text-anchor="middle" x="232.6" y="-569.5" font-family="Helvetica,sans-Serif" font-size="11.00">Render name, bank, etc.</text>
+</g>
+<!-- UI_Dashboard&#45;&gt;UI_Profile -->
+<g id="edge6" class="edge">
+<title>UI_Dashboard-&gt;UI_Profile</title>
+<path fill="none" stroke="#444444" d="M127.82,-619.96C136.93,-616.98 146.5,-613.85 156.01,-610.74"></path>
+<polygon fill="#444444" stroke="#444444" points="156.63,-613.11 162.52,-608.61 155.11,-608.45 156.63,-613.11"></polygon>
+</g>
+<!-- UI_Transfer -->
+<g id="node9" class="node">
+<title>UI_Transfer</title>
+<path fill="#f9f9f9" stroke="#666666" d="M278.44,-664C278.44,-664 186.77,-664 186.77,-664 180.77,-664 174.77,-658 174.77,-652 174.77,-652 174.77,-640 174.77,-640 174.77,-634 180.77,-628 186.77,-628 186.77,-628 278.44,-628 278.44,-628 284.44,-628 290.44,-634 290.44,-640 290.44,-640 290.44,-652 290.44,-652 290.44,-658 284.44,-664 278.44,-664"></path>
+<text text-anchor="middle" x="232.6" y="-649.3" font-family="Helvetica,sans-Serif" font-size="11.00">Open Transfer Page</text>
+<text text-anchor="middle" x="232.6" y="-636.1" font-family="Helvetica,sans-Serif" font-size="11.00">transfer.html</text>
+</g>
+<!-- UI_Dashboard&#45;&gt;UI_Transfer -->
+<g id="edge14" class="edge">
+<title>UI_Dashboard-&gt;UI_Transfer</title>
+<path fill="none" stroke="#444444" d="M127.82,-640.78C140.18,-641.4 153.4,-642.06 166.13,-642.7"></path>
+<polygon fill="#444444" stroke="#444444" points="165.78,-645.14 172.89,-643.04 166.03,-640.25 165.78,-645.14"></polygon>
+</g>
+<!-- UI_TxInit -->
+<g id="node7" class="node">
+<title>UI_TxInit</title>
+<path fill="#f9f9f9" stroke="#666666" d="M460.43,-613.8C460.43,-613.8 362.66,-613.8 362.66,-613.8 356.66,-613.8 350.66,-607.8 350.66,-601.8 350.66,-601.8 350.66,-578.2 350.66,-578.2 350.66,-572.2 356.66,-566.2 362.66,-566.2 362.66,-566.2 460.43,-566.2 460.43,-566.2 466.43,-566.2 472.43,-572.2 472.43,-578.2 472.43,-578.2 472.43,-601.8 472.43,-601.8 472.43,-607.8 466.43,-613.8 460.43,-613.8"></path>
+<text text-anchor="middle" x="411.55" y="-599.9" font-family="Helvetica,sans-Serif" font-size="11.00">Fetch recent tx</text>
+<text text-anchor="middle" x="411.55" y="-586.7" font-family="Helvetica,sans-Serif" font-size="11.00">GET /api/transactions</text>
+<text text-anchor="middle" x="411.55" y="-573.5" font-family="Helvetica,sans-Serif" font-size="11.00">Render list</text>
+</g>
+<!-- UI_Profile&#45;&gt;UI_TxInit -->
+<g id="edge9" class="edge">
+<title>UI_Profile-&gt;UI_TxInit</title>
+<path fill="none" stroke="#444444" d="M301.26,-587.53C314.59,-587.83 328.59,-588.15 341.95,-588.45"></path>
+<polygon fill="#444444" stroke="#444444" points="341.61,-590.89 348.66,-588.6 341.72,-585.99 341.61,-590.89"></polygon>
+</g>
+<!-- S_Me -->
+<g id="node21" class="node">
+<title>S_Me</title>
+<path fill="#f9f9f9" stroke="#666666" d="M439.95,-292C439.95,-292 383.14,-292 383.14,-292 377.14,-292 371.14,-286 371.14,-280 371.14,-280 371.14,-268 371.14,-268 371.14,-262 377.14,-256 383.14,-256 383.14,-256 439.95,-256 439.95,-256 445.95,-256 451.95,-262 451.95,-268 451.95,-268 451.95,-280 451.95,-280 451.95,-286 445.95,-292 439.95,-292"></path>
+<text text-anchor="middle" x="411.55" y="-277.3" font-family="Helvetica,sans-Serif" font-size="11.00">GET /api/me</text>
+<text text-anchor="middle" x="411.55" y="-264.1" font-family="Helvetica,sans-Serif" font-size="11.00">Profile for uid</text>
+</g>
+<!-- UI_Profile&#45;&gt;S_Me -->
+<g id="edge7" class="edge">
+<title>UI_Profile-&gt;S_Me</title>
+<path fill="none" stroke="#444444" d="M293.02,-561.7C295.94,-559.08 298.58,-556.19 300.83,-553 304.89,-547.24 325.39,-306.47 329.83,-301 338.08,-290.83 350.28,-284.47 362.72,-280.49"></path>
+<polygon fill="#444444" stroke="#444444" points="363.35,-282.86 369.43,-278.62 362.03,-278.14 363.35,-282.86"></polygon>
+</g>
+<!-- UI_SSE -->
+<g id="node8" class="node">
+<title>UI_SSE</title>
+<path fill="#f9f9f9" stroke="#666666" d="M811,-548C811,-548 727.31,-548 727.31,-548 721.31,-548 715.31,-542 715.31,-536 715.31,-536 715.31,-524 715.31,-524 715.31,-518 721.31,-512 727.31,-512 727.31,-512 811,-512 811,-512 817,-512 823,-518 823,-524 823,-524 823,-536 823,-536 823,-542 817,-548 811,-548"></path>
+<text text-anchor="middle" x="769.15" y="-533.3" font-family="Helvetica,sans-Serif" font-size="11.00">Subscribe SSE</text>
+<text text-anchor="middle" x="769.15" y="-520.1" font-family="Helvetica,sans-Serif" font-size="11.00">GET /api/tx/stream</text>
+</g>
+<!-- UI_TxInit&#45;&gt;UI_SSE -->
+<g id="edge12" class="edge">
+<title>UI_TxInit-&gt;UI_SSE</title>
+<path fill="none" stroke="#444444" d="M472.52,-567.44C482.68,-564.22 493.19,-561.24 503.26,-559 571.84,-543.72 652.28,-536.37 706.37,-532.91"></path>
+<polygon fill="#444444" stroke="#444444" points="706.47,-535.36 713.31,-532.48 706.17,-530.47 706.47,-535.36"></polygon>
+</g>
+<!-- S_TxList -->
+<g id="node22" class="node">
+<title>S_TxList</title>
+<path fill="#f9f9f9" stroke="#666666" d="M461.95,-400C461.95,-400 361.14,-400 361.14,-400 355.14,-400 349.14,-394 349.14,-388 349.14,-388 349.14,-376 349.14,-376 349.14,-370 355.14,-364 361.14,-364 361.14,-364 461.95,-364 461.95,-364 467.95,-364 473.95,-370 473.95,-376 473.95,-376 473.95,-388 473.95,-388 473.95,-394 467.95,-400 461.95,-400"></path>
+<text text-anchor="middle" x="411.55" y="-385.3" font-family="Helvetica,sans-Serif" font-size="11.00">GET /api/transactions</text>
+<text text-anchor="middle" x="411.55" y="-372.1" font-family="Helvetica,sans-Serif" font-size="11.00">Recent IN/OUT for uid</text>
+</g>
+<!-- UI_TxInit&#45;&gt;S_TxList -->
+<g id="edge10" class="edge">
+<title>UI_TxInit-&gt;S_TxList</title>
+<path fill="none" stroke="#444444" d="M350.19,-576.94C336,-570.72 322.86,-561.54 315.33,-548 303.99,-527.61 304.09,-463.44 315.33,-443 324.38,-426.54 339.96,-413.9 355.97,-404.51"></path>
+<polygon fill="#444444" stroke="#444444" points="357.08,-406.7 362.01,-401.16 354.7,-402.41 357.08,-406.7"></polygon>
+</g>
+<!-- UI_SSE&#45;&gt;UI_TxInit -->
+<g id="edge25" class="edge">
+<title>UI_SSE-&gt;UI_TxInit</title>
+<path fill="none" stroke="#444444" d="M714.84,-546.48C708.54,-548.14 702.18,-549.7 696.06,-551 623.35,-566.5 538.77,-577.21 481.04,-583.43"></path>
+<polygon fill="#444444" stroke="#444444" points="480.93,-580.97 474.23,-584.15 481.45,-585.85 480.93,-580.97"></polygon>
+<text text-anchor="middle" x="599.66" y="-584.2" font-family="Times,serif" font-size="14.00">Refetch recent tx</text>
+</g>
+<!-- S_TxStream -->
+<g id="node23" class="node">
+<title>S_TxStream</title>
+<path fill="#f9f9f9" stroke="#666666" d="M810.7,-400C810.7,-400 727.61,-400 727.61,-400 721.61,-400 715.61,-394 715.61,-388 715.61,-388 715.61,-376 715.61,-376 715.61,-370 721.61,-364 727.61,-364 727.61,-364 810.7,-364 810.7,-364 816.7,-364 822.7,-370 822.7,-376 822.7,-376 822.7,-388 822.7,-388 822.7,-394 816.7,-400 810.7,-400"></path>
+<text text-anchor="middle" x="769.15" y="-385.3" font-family="Helvetica,sans-Serif" font-size="11.00">SSE /api/tx/stream</text>
+<text text-anchor="middle" x="769.15" y="-372.1" font-family="Helvetica,sans-Serif" font-size="11.00">Emit tx events</text>
+</g>
+<!-- UI_SSE&#45;&gt;S_TxStream -->
+<g id="edge13" class="edge">
+<title>UI_SSE-&gt;S_TxStream</title>
+<path fill="none" stroke="#444444" d="M715.06,-534.69C676.45,-534.74 626.74,-527.43 599.66,-494 585.4,-476.39 586.63,-461.54 599.66,-443 623.92,-408.48 669.68,-393.41 707.54,-386.87"></path>
+<polygon fill="#444444" stroke="#444444" points="707.47,-389.36 714,-385.83 706.7,-384.52 707.47,-389.36"></polygon>
+</g>
+<!-- UI_LoadFriends -->
+<g id="node10" class="node">
+<title>UI_LoadFriends</title>
+<path fill="#f9f9f9" stroke="#666666" d="M446.07,-547.8C446.07,-547.8 377.03,-547.8 377.03,-547.8 371.03,-547.8 365.03,-541.8 365.03,-535.8 365.03,-535.8 365.03,-512.2 365.03,-512.2 365.03,-506.2 371.03,-500.2 377.03,-500.2 377.03,-500.2 446.07,-500.2 446.07,-500.2 452.07,-500.2 458.07,-506.2 458.07,-512.2 458.07,-512.2 458.07,-535.8 458.07,-535.8 458.07,-541.8 452.07,-547.8 446.07,-547.8"></path>
+<text text-anchor="middle" x="411.55" y="-533.9" font-family="Helvetica,sans-Serif" font-size="11.00">Load friends list</text>
+<text text-anchor="middle" x="411.55" y="-520.7" font-family="Helvetica,sans-Serif" font-size="11.00">GET /api/users</text>
+<text text-anchor="middle" x="411.55" y="-507.5" font-family="Helvetica,sans-Serif" font-size="11.00">Populate select</text>
+</g>
+<!-- UI_Transfer&#45;&gt;UI_LoadFriends -->
+<g id="edge15" class="edge">
+<title>UI_Transfer-&gt;UI_LoadFriends</title>
+<path fill="none" stroke="#444444" d="M289.6,-627.55C293.64,-625.04 297.45,-622.2 300.83,-619 322.93,-598.1 307.8,-577.97 329.83,-557 337.61,-549.6 347.27,-543.76 357.18,-539.2"></path>
+<polygon fill="#444444" stroke="#444444" points="357.91,-541.55 363.38,-536.54 355.98,-537.04 357.91,-541.55"></polygon>
+</g>
+<!-- UI_LoadSender -->
+<g id="node11" class="node">
+<title>UI_LoadSender</title>
+<path fill="#f9f9f9" stroke="#666666" d="M812.24,-493.8C812.24,-493.8 726.06,-493.8 726.06,-493.8 720.06,-493.8 714.06,-487.8 714.06,-481.8 714.06,-481.8 714.06,-458.2 714.06,-458.2 714.06,-452.2 720.06,-446.2 726.06,-446.2 726.06,-446.2 812.24,-446.2 812.24,-446.2 818.24,-446.2 824.24,-452.2 824.24,-458.2 824.24,-458.2 824.24,-481.8 824.24,-481.8 824.24,-487.8 818.24,-493.8 812.24,-493.8"></path>
+<text text-anchor="middle" x="769.15" y="-479.9" font-family="Helvetica,sans-Serif" font-size="11.00">Load sender profile</text>
+<text text-anchor="middle" x="769.15" y="-466.7" font-family="Helvetica,sans-Serif" font-size="11.00">GET /api/me</text>
+<text text-anchor="middle" x="769.15" y="-453.5" font-family="Helvetica,sans-Serif" font-size="11.00">Cache name/bank</text>
+</g>
+<!-- UI_LoadFriends&#45;&gt;UI_LoadSender -->
+<g id="edge18" class="edge">
+<title>UI_LoadFriends-&gt;UI_LoadSender</title>
+<path fill="none" stroke="#444444" d="M458.29,-517.88C514.39,-510.27 612.36,-496.59 696.06,-483 699.22,-482.49 702.45,-481.95 705.72,-481.4"></path>
+<polygon fill="#444444" stroke="#444444" points="705.89,-483.85 712.37,-480.25 705.06,-479.02 705.89,-483.85"></polygon>
+</g>
+<!-- S_Users -->
+<g id="node20" class="node">
+<title>S_Users</title>
+<path fill="#f9f9f9" stroke="#666666" d="M462.57,-346C462.57,-346 360.53,-346 360.53,-346 354.53,-346 348.53,-340 348.53,-334 348.53,-334 348.53,-322 348.53,-322 348.53,-316 354.53,-310 360.53,-310 360.53,-310 462.57,-310 462.57,-310 468.57,-310 474.57,-316 474.57,-322 474.57,-322 474.57,-334 474.57,-334 474.57,-340 468.57,-346 462.57,-346"></path>
+<text text-anchor="middle" x="411.55" y="-331.3" font-family="Helvetica,sans-Serif" font-size="11.00">GET /api/users</text>
+<text text-anchor="middle" x="411.55" y="-318.1" font-family="Helvetica,sans-Serif" font-size="11.00">List users (except self)</text>
+</g>
+<!-- UI_LoadFriends&#45;&gt;S_Users -->
+<g id="edge16" class="edge">
+<title>UI_LoadFriends-&gt;S_Users</title>
+<path fill="none" stroke="#444444" d="M364.65,-516.25C345.44,-510.38 325.39,-500.08 315.33,-482 302.58,-459.08 302.58,-386.92 315.33,-364 321.11,-353.62 330.4,-346.2 340.97,-340.91"></path>
+<polygon fill="#444444" stroke="#444444" points="341.69,-343.27 347.09,-338.19 339.7,-338.79 341.69,-343.27"></polygon>
+</g>
+<!-- UI_FillForm -->
+<g id="node12" class="node">
+<title>UI_FillForm</title>
+<path fill="#f9f9f9" stroke="#666666" d="M987.91,-493.8C987.91,-493.8 923.16,-493.8 923.16,-493.8 917.16,-493.8 911.16,-487.8 911.16,-481.8 911.16,-481.8 911.16,-458.2 911.16,-458.2 911.16,-452.2 917.16,-446.2 923.16,-446.2 923.16,-446.2 987.91,-446.2 987.91,-446.2 993.91,-446.2 999.91,-452.2 999.91,-458.2 999.91,-458.2 999.91,-481.8 999.91,-481.8 999.91,-487.8 993.91,-493.8 987.91,-493.8"></path>
+<text text-anchor="middle" x="955.54" y="-479.9" font-family="Helvetica,sans-Serif" font-size="11.00">Select receiver</text>
+<text text-anchor="middle" x="955.54" y="-466.7" font-family="Helvetica,sans-Serif" font-size="11.00">Enter amount</text>
+<text text-anchor="middle" x="955.54" y="-453.5" font-family="Helvetica,sans-Serif" font-size="11.00">Click Send</text>
+</g>
+<!-- UI_LoadSender&#45;&gt;UI_FillForm -->
+<g id="edge21" class="edge">
+<title>UI_LoadSender-&gt;UI_FillForm</title>
+<path fill="none" stroke="#444444" d="M824.48,-470C849.09,-470 878.06,-470 902.4,-470"></path>
+<polygon fill="#444444" stroke="#444444" points="902.29,-472.45 909.29,-470 902.29,-467.55 902.29,-472.45"></polygon>
+<text text-anchor="middle" x="867.7" y="-474.2" font-family="Times,serif" font-size="14.00">Create tx</text>
+</g>
+<!-- UI_LoadSender&#45;&gt;S_Me -->
+<g id="edge19" class="edge">
+<title>UI_LoadSender-&gt;S_Me</title>
+<path fill="none" stroke="#444444" d="M713.6,-474.79C644.97,-479.51 532.52,-482.56 503.26,-455 478.18,-431.38 506.55,-328.1 485.26,-301 478.83,-292.81 469.65,-287.11 459.97,-283.13"></path>
+<polygon fill="#444444" stroke="#444444" points="460.98,-280.89 453.56,-280.81 459.31,-285.5 460.98,-280.89"></polygon>
+</g>
+<!-- UI_SecCSV -->
+<g id="node13" class="node">
+<title>UI_SecCSV</title>
+<path fill="#f9f9f9" stroke="#666666" d="M1136.9,-485C1136.9,-485 1048.91,-485 1048.91,-485 1042.91,-485 1036.91,-479 1036.91,-473 1036.91,-473 1036.91,-461 1036.91,-461 1036.91,-455 1042.91,-449 1048.91,-449 1048.91,-449 1136.9,-449 1136.9,-449 1142.9,-449 1148.9,-455 1148.9,-461 1148.9,-461 1148.9,-473 1148.9,-473 1148.9,-479 1142.9,-485 1136.9,-485"></path>
+<text text-anchor="middle" x="1092.91" y="-470.3" font-family="Helvetica,sans-Serif" font-size="11.00">Load CSV</text>
+<text text-anchor="middle" x="1092.91" y="-457.1" font-family="Helvetica,sans-Serif" font-size="11.00">bank_testcases.csv</text>
+</g>
+<!-- UI_FillForm&#45;&gt;UI_SecCSV -->
+<g id="edge26" class="edge">
+<title>UI_FillForm-&gt;UI_SecCSV</title>
+<path fill="none" stroke="#444444" d="M1000.11,-469.03C1009.08,-468.84 1018.7,-468.62 1028.21,-468.41"></path>
+<polygon fill="#444444" stroke="#444444" points="1028.06,-470.87 1035.01,-468.26 1027.96,-465.97 1028.06,-470.87"></polygon>
+</g>
+<!-- S_TxCreate -->
+<g id="node24" class="node">
+<title>S_TxCreate</title>
+<path fill="#f9f9f9" stroke="#666666" d="M473.26,-117.8C473.26,-117.8 349.83,-117.8 349.83,-117.8 343.83,-117.8 337.83,-111.8 337.83,-105.8 337.83,-105.8 337.83,-82.2 337.83,-82.2 337.83,-76.2 343.83,-70.2 349.83,-70.2 349.83,-70.2 473.26,-70.2 473.26,-70.2 479.26,-70.2 485.26,-76.2 485.26,-82.2 485.26,-82.2 485.26,-105.8 485.26,-105.8 485.26,-111.8 479.26,-117.8 473.26,-117.8"></path>
+<text text-anchor="middle" x="411.55" y="-103.9" font-family="Helvetica,sans-Serif" font-size="11.00">POST /api/transfer</text>
+<text text-anchor="middle" x="411.55" y="-90.7" font-family="Helvetica,sans-Serif" font-size="11.00">Insert tx (sender→receiver)</text>
+<text text-anchor="middle" x="411.55" y="-77.5" font-family="Helvetica,sans-Serif" font-size="11.00">Broadcast SSE</text>
+</g>
+<!-- UI_FillForm&#45;&gt;S_TxCreate -->
+<g id="edge22" class="edge">
+<title>UI_FillForm-&gt;S_TxCreate</title>
+<path fill="none" stroke="#444444" d="M937.7,-445.87C900.22,-393.89 804.58,-270.46 696.06,-202 619.34,-153.6 587.53,-168.6 503.26,-135 501.39,-134.25 488.85,-128.61 473.66,-121.74"></path>
+<polygon fill="#444444" stroke="#444444" points="474.79,-119.56 467.4,-118.91 472.77,-124.03 474.79,-119.56"></polygon>
+<text text-anchor="middle" x="769.15" y="-318.2" font-family="Times,serif" font-size="14.00">Create tx</text>
+</g>
+<!-- UI_SecDecide -->
+<g id="node14" class="node">
+<title>UI_SecDecide</title>
+<path fill="#f9f9f9" stroke="#666666" d="M1315.2,-483C1315.2,-483 1197.9,-483 1197.9,-483 1191.9,-483 1185.9,-477 1185.9,-471 1185.9,-471 1185.9,-459 1185.9,-459 1185.9,-453 1191.9,-447 1197.9,-447 1197.9,-447 1315.2,-447 1315.2,-447 1321.2,-447 1327.2,-453 1327.2,-459 1327.2,-459 1327.2,-471 1327.2,-471 1327.2,-477 1321.2,-483 1315.2,-483"></path>
+<text text-anchor="middle" x="1256.55" y="-468.3" font-family="Helvetica,sans-Serif" font-size="11.00">Decide mode</text>
+<text text-anchor="middle" x="1256.55" y="-455.1" font-family="Helvetica,sans-Serif" font-size="11.00">(Classical / PQC / Hybrid)</text>
+</g>
+<!-- UI_SecCSV&#45;&gt;UI_SecDecide -->
+<g id="edge27" class="edge">
+<title>UI_SecCSV-&gt;UI_SecDecide</title>
+<path fill="none" stroke="#444444" d="M1149.09,-466.32C1158.14,-466.21 1167.67,-466.09 1177.16,-465.97"></path>
+<polygon fill="#444444" stroke="#444444" points="1176.99,-468.42 1183.96,-465.89 1176.93,-463.52 1176.99,-468.42"></polygon>
+</g>
+<!-- UI_SecFlow -->
+<g id="node15" class="node">
+<title>UI_SecFlow</title>
+<path fill="#f9f9f9" stroke="#666666" d="M1491.05,-482C1491.05,-482 1376.2,-482 1376.2,-482 1370.2,-482 1364.2,-476 1364.2,-470 1364.2,-470 1364.2,-458 1364.2,-458 1364.2,-452 1370.2,-446 1376.2,-446 1376.2,-446 1491.05,-446 1491.05,-446 1497.05,-446 1503.05,-452 1503.05,-458 1503.05,-458 1503.05,-470 1503.05,-470 1503.05,-476 1497.05,-482 1491.05,-482"></path>
+<text text-anchor="middle" x="1433.63" y="-467.3" font-family="Helvetica,sans-Serif" font-size="11.00">Render security flow</text>
+<text text-anchor="middle" x="1433.63" y="-454.1" font-family="Helvetica,sans-Serif" font-size="11.00">TLS, KX, JWT, Cert, Perf</text>
+</g>
+<!-- UI_SecDecide&#45;&gt;UI_SecFlow -->
+<g id="edge28" class="edge">
+<title>UI_SecDecide-&gt;UI_SecFlow</title>
+<path fill="none" stroke="#444444" d="M1327.5,-464.6C1336.69,-464.55 1346.15,-464.49 1355.45,-464.44"></path>
+<polygon fill="#444444" stroke="#444444" points="1355.43,-466.89 1362.42,-464.4 1355.4,-461.99 1355.43,-466.89"></polygon>
+</g>
+<!-- UI_SaveFlow -->
+<g id="node16" class="node">
+<title>UI_SaveFlow</title>
+<path fill="#f9f9f9" stroke="#666666" d="M1653.49,-482C1653.49,-482 1552.05,-482 1552.05,-482 1546.05,-482 1540.05,-476 1540.05,-470 1540.05,-470 1540.05,-458 1540.05,-458 1540.05,-452 1546.05,-446 1552.05,-446 1552.05,-446 1653.49,-446 1653.49,-446 1659.49,-446 1665.49,-452 1665.49,-458 1665.49,-458 1665.49,-470 1665.49,-470 1665.49,-476 1659.49,-482 1653.49,-482"></path>
+<text text-anchor="middle" x="1602.77" y="-467.3" font-family="Helvetica,sans-Serif" font-size="11.00">Persist flow</text>
+<text text-anchor="middle" x="1602.77" y="-454.1" font-family="Helvetica,sans-Serif" font-size="11.00">POST /api/transfer-log</text>
+</g>
+<!-- UI_SecFlow&#45;&gt;UI_SaveFlow -->
+<g id="edge29" class="edge">
+<title>UI_SecFlow-&gt;UI_SaveFlow</title>
+<path fill="none" stroke="#444444" d="M1503.09,-464C1512.34,-464 1521.85,-464 1531.13,-464"></path>
+<polygon fill="#444444" stroke="#444444" points="1531.07,-466.45 1538.07,-464 1531.07,-461.55 1531.07,-466.45"></polygon>
+</g>
+<!-- S_LogFlow -->
+<g id="node25" class="node">
+<title>S_LogFlow</title>
+<path fill="#f9f9f9" stroke="#666666" d="M462.26,-52C462.26,-52 360.83,-52 360.83,-52 354.83,-52 348.83,-46 348.83,-40 348.83,-40 348.83,-28 348.83,-28 348.83,-22 354.83,-16 360.83,-16 360.83,-16 462.26,-16 462.26,-16 468.26,-16 474.26,-22 474.26,-28 474.26,-28 474.26,-40 474.26,-40 474.26,-46 468.26,-52 462.26,-52"></path>
+<text text-anchor="middle" x="411.55" y="-37.3" font-family="Helvetica,sans-Serif" font-size="11.00">POST /api/transfer-log</text>
+<text text-anchor="middle" x="411.55" y="-24.1" font-family="Helvetica,sans-Serif" font-size="11.00">Append JSONL log</text>
+</g>
+<!-- UI_SaveFlow&#45;&gt;S_LogFlow -->
+<g id="edge30" class="edge">
+<title>UI_SaveFlow-&gt;S_LogFlow</title>
+<path fill="none" stroke="#444444" d="M1601.43,-445.56C1599.05,-374.31 1580.36,-121 1434.63,-121 768.15,-121 768.15,-121 768.15,-121 712.68,-121 567.53,-80.55 480.79,-54.82"></path>
+<polygon fill="#444444" stroke="#444444" points="481.7,-52.53 474.29,-52.88 480.3,-57.23 481.7,-52.53"></polygon>
+</g>
+<!-- UI_LogoutClick -->
+<g id="node17" class="node">
+<title>UI_LogoutClick</title>
+<path fill="#f9f9f9" stroke="#666666" d="M100.7,-547.8C100.7,-547.8 42.67,-547.8 42.67,-547.8 36.67,-547.8 30.67,-541.8 30.67,-535.8 30.67,-535.8 30.67,-512.2 30.67,-512.2 30.67,-506.2 36.67,-500.2 42.67,-500.2 42.67,-500.2 100.7,-500.2 100.7,-500.2 106.7,-500.2 112.7,-506.2 112.7,-512.2 112.7,-512.2 112.7,-535.8 112.7,-535.8 112.7,-541.8 106.7,-547.8 100.7,-547.8"></path>
+<text text-anchor="middle" x="71.69" y="-533.9" font-family="Helvetica,sans-Serif" font-size="11.00">Click Logout</text>
+<text text-anchor="middle" x="71.69" y="-520.7" font-family="Helvetica,sans-Serif" font-size="11.00">POST /logout</text>
+<text text-anchor="middle" x="71.69" y="-507.5" font-family="Helvetica,sans-Serif" font-size="11.00">Redirect to /</text>
+</g>
+<!-- S_Logout -->
+<g id="node26" class="node">
+<title>S_Logout</title>
+<path fill="#f9f9f9" stroke="#666666" d="M440.56,-238C440.56,-238 382.53,-238 382.53,-238 376.53,-238 370.53,-232 370.53,-226 370.53,-226 370.53,-214 370.53,-214 370.53,-208 376.53,-202 382.53,-202 382.53,-202 440.56,-202 440.56,-202 446.56,-202 452.56,-208 452.56,-214 452.56,-214 452.56,-226 452.56,-226 452.56,-232 446.56,-238 440.56,-238"></path>
+<text text-anchor="middle" x="411.55" y="-223.3" font-family="Helvetica,sans-Serif" font-size="11.00">POST /logout</text>
+<text text-anchor="middle" x="411.55" y="-210.1" font-family="Helvetica,sans-Serif" font-size="11.00">Clear cookie</text>
+</g>
+<!-- UI_LogoutClick&#45;&gt;S_Logout -->
+<g id="edge31" class="edge">
+<title>UI_LogoutClick-&gt;S_Logout</title>
+<path fill="none" stroke="#444444" d="M112.97,-502.46C118.07,-498.95 123.02,-495.11 127.37,-491 148.53,-471.03 144.56,-458.31 164.37,-437 224.56,-372.28 275.62,-389.52 319.83,-313 334.67,-287.31 310.74,-269.71 329.83,-247 338.1,-237.17 350.06,-230.9 362.26,-226.91"></path>
+<polygon fill="#444444" stroke="#444444" points="362.77,-229.31 368.82,-225.02 361.41,-224.6 362.77,-229.31"></polygon>
+</g>
+<!-- S_Login&#45;&gt;UI_LoginError -->
+<g id="edge5" class="edge">
+<title>S_Login-&gt;UI_LoginError</title>
+<path fill="none" stroke="#444444" d="M350.84,-174.66C297.97,-189.77 220.68,-217.23 164.37,-260.2 106.54,-304.33 84.24,-393.14 76.45,-437.51"></path>
+<polygon fill="#444444" stroke="#444444" points="74.05,-436.97 75.32,-444.27 78.89,-437.77 74.05,-436.97"></polygon>
+<text text-anchor="middle" x="232.6" y="-264.2" font-family="Times,serif" font-size="14.00">401</text>
+</g>
+<!-- S_Login&#45;&gt;UI_Dashboard -->
+<g id="edge4" class="edge">
+<title>S_Login-&gt;UI_Dashboard</title>
+<path fill="none" stroke="#444444" d="M350.8,-177.46C343.05,-181.62 335.76,-186.73 329.83,-193 302.69,-221.69 321.37,-243.26 300.83,-277 255.12,-352.09 204.69,-342.08 164.37,-420.2 124.76,-496.96 179.78,-542.33 127.37,-611 126.61,-612 125.8,-612.96 124.95,-613.9"></path>
+<polygon fill="#444444" stroke="#444444" points="123.4,-611.99 119.92,-618.54 126.72,-615.59 123.4,-611.99"></polygon>
+<text text-anchor="middle" x="232.6" y="-424.2" font-family="Times,serif" font-size="14.00">200 OK</text>
+</g>
+<!-- S_Users&#45;&gt;UI_LoadFriends -->
+<g id="edge17" class="edge">
+<title>S_Users-&gt;UI_LoadFriends</title>
+<path fill="none" stroke="#444444" d="M348.48,-337.57C334.87,-342.93 322.44,-351.22 315.33,-364 302.58,-386.92 302.58,-459.08 315.33,-482 324.05,-497.68 340.29,-507.51 356.98,-513.67"></path>
+<polygon fill="#444444" stroke="#444444" points="355.8,-515.86 363.21,-515.77 357.36,-511.21 355.8,-515.86"></polygon>
+</g>
+<!-- S_Me&#45;&gt;UI_Profile -->
+<g id="edge8" class="edge">
+<title>S_Me-&gt;UI_Profile</title>
+<path fill="none" stroke="#444444" d="M370.8,-278.14C355.72,-281.78 339.8,-288.53 329.83,-301 316.03,-318.27 322.31,-378.03 319.83,-400 312.17,-468.09 340.59,-497.19 300.83,-553 300.1,-554.03 299.33,-555.02 298.52,-555.99"></path>
+<polygon fill="#444444" stroke="#444444" points="296.9,-554.14 293.75,-560.86 300.4,-557.57 296.9,-554.14"></polygon>
+</g>
+<!-- S_Me&#45;&gt;UI_LoadSender -->
+<g id="edge20" class="edge">
+<title>S_Me-&gt;UI_LoadSender</title>
+<path fill="none" stroke="#444444" d="M452.2,-287.58C463.05,-291.6 474.71,-296.22 485.26,-301 582.27,-344.98 611.54,-350.19 696.06,-415 705.29,-422.08 705.17,-426.51 714.06,-434 716.93,-436.42 719.97,-438.81 723.08,-441.15"></path>
+<polygon fill="#444444" stroke="#444444" points="721.22,-442.83 728.32,-444.97 724.11,-438.87 721.22,-442.83"></polygon>
+</g>
+<!-- S_TxList&#45;&gt;UI_TxInit -->
+<g id="edge11" class="edge">
+<title>S_TxList-&gt;UI_TxInit</title>
+<path fill="none" stroke="#444444" d="M363.34,-400.42C344.88,-410.12 325.77,-424.02 315.33,-443 304.09,-463.44 303.99,-527.61 315.33,-548 321.51,-559.11 331.46,-567.28 342.67,-573.29"></path>
+<polygon fill="#444444" stroke="#444444" points="341.46,-575.43 348.83,-576.28 343.6,-571.02 341.46,-575.43"></polygon>
+</g>
+<!-- S_TxStream&#45;&gt;UI_SSE -->
+<g id="edge24" class="edge">
+<title>S_TxStream-&gt;UI_SSE</title>
+<path fill="none" stroke="#444444" d="M715.13,-372.6C659.52,-366.39 574.9,-367.27 530.43,-419.2 476.46,-482.24 619.26,-511.6 706.77,-523.34"></path>
+<polygon fill="#444444" stroke="#444444" points="706.3,-525.75 713.55,-524.23 706.93,-520.89 706.3,-525.75"></polygon>
+<text text-anchor="middle" x="599.66" y="-440.2" font-family="Times,serif" font-size="14.00">event: tx</text>
+<text text-anchor="middle" x="599.66" y="-423.4" font-family="Times,serif" font-size="14.00">receiver/sender dashboards update</text>
+</g>
+<!-- S_TxCreate&#45;&gt;S_TxStream -->
+<g id="edge23" class="edge">
+<title>S_TxCreate-&gt;S_TxStream</title>
+<path fill="none" stroke="#444444" d="M476.31,-118.25C479.59,-120.88 482.61,-123.79 485.26,-127 507.09,-153.43 481.42,-175.58 503.26,-202 563.18,-274.48 622.21,-230.98 696.06,-289.2 719.89,-307.98 740.37,-336.27 753.34,-356.67"></path>
+<polygon fill="#444444" stroke="#444444" points="751.2,-357.86 756.97,-362.51 755.36,-355.27 751.2,-357.86"></polygon>
+<text text-anchor="middle" x="599.66" y="-293.2" font-family="Times,serif" font-size="14.00">broadcast</text>
+</g>
+<!-- S_Logout&#45;&gt;UI_Login -->
+<g id="edge32" class="edge">
+<title>S_Logout-&gt;UI_Login</title>
+<path fill="none" stroke="#444444" d="M370.3,-224.18C355.33,-227.83 339.62,-234.59 329.83,-247 314.09,-266.97 322.68,-335.73 319.83,-361 316.37,-391.76 319.88,-474.6 300.83,-499 298.94,-501.42 296.8,-503.63 294.47,-505.64"></path>
+<polygon fill="#444444" stroke="#444444" points="293.29,-503.46 289.13,-509.61 296.21,-507.4 293.29,-503.46"></polygon>
+</g>
+</g>
+</g></svg>
