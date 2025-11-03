@@ -6,6 +6,12 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  form.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault(); // stops raw POST submission
+    }
+  });
+
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
