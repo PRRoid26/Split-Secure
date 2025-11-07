@@ -1,30 +1,31 @@
 // server.js
-import fetch from "node-fetch"; // <--- IMPORTANT
-import express from "express";
-import sqlite3 from "sqlite3";
-import path from "path";
-import bodyParser from "body-parser";
-import cookieParser from "cookie-parser";
-import fs from "fs";
-import os from "os";
+const express = require("express");
+const sqlite3 = require("sqlite3").verbose();
+const path = require("path");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const fs = require("fs");
+const os = require("os");
+const fetch = require("node-fetch");          // ✅ REQUIRED
+const cors = require("cors");                // ✅ REQUIRED
 
-const dbPath = path.resolve("users.db");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(cors({ origin: "*", credentials: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser("dev-secret-change-me"));
-app.use(express.static(path.join(process.cwd(), "frontend")));
 
-// Connect DB
+// DB
+const dbPath = path.resolve(__dirname, "users.db");
 const db = new sqlite3.Database(dbPath, (err) => {
-  if (err) console.error("DB Error:", err.message);
-  else console.log("✅ Connected to SQLite database.");
+  if (err) console.error("Error opening database:", err.message);
+  else console.log("Connected to SQLite database.");
 });
 
-// Create tables if missing
+// Create tables if not exists
 db.serialize(() => {
   db.run(`
     CREATE TABLE IF NOT EXISTS users (
@@ -38,8 +39,7 @@ db.serialize(() => {
       bank TEXT NOT NULL,
       encryptionVersion TEXT NOT NULL,
       hardwareVersion TEXT NOT NULL
-    )
-  `);
+    )`);
 
   db.run(`
     CREATE TABLE IF NOT EXISTS transactions (
@@ -48,59 +48,56 @@ db.serialize(() => {
       senderId INTEGER NOT NULL,
       receiverId INTEGER NOT NULL,
       amount REAL NOT NULL,
-      title TEXT NOT NULL,
-      channel TEXT NOT NULL,
+      mode TEXT NOT NULL,
+      hw_class TEXT NOT NULL,
+      tx_type TEXT NOT NULL,
+      channel TEXT NOT NULL DEFAULT 'UPI',
       FOREIGN KEY(senderId) REFERENCES users(id),
       FOREIGN KEY(receiverId) REFERENCES users(id)
-    )
-  `);
+    )`);
 });
 
-// Auth
+// Auth middleware
 function requireAuth(req, res, next) {
   const uid = req.signedCookies?.uid;
   if (!uid) return res.status(401).json({ message: "Not authenticated" });
-  req.userId = Number(uid);
+  req.userId = parseInt(uid, 10);
   next();
 }
 
-// Register
+// REGISTER
 app.post("/register", (req, res) => {
   const { name, surname, username, password, account, phone, bank, encryptionVersion, hardwareVersion } = req.body;
-  if (!name || !surname || !username || !password || !account || !phone || !bank)
-    return res.status(400).json({ message: "Missing fields" });
-
+  if (!name || !surname || !username || !password || !account || !phone || !bank) {
+    return res.status(400).json({ message: "Missing required fields" });
+  }
   db.run(
     `INSERT INTO users (name, surname, username, password, account, phone, bank, encryptionVersion, hardwareVersion)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     [name, surname, username, password, account, phone, bank, encryptionVersion, hardwareVersion],
     function (err) {
-      if (err) {
-        if (err.message.includes("UNIQUE")) return res.status(400).json({ message: "Username already exists" });
-        return res.status(500).json({ message: "DB error" });
-      }
-      res.status(201).json({ message: "User registered", id: this.lastID });
+      if (err) return res.status(400).json({ message: "Username already exists" });
+      return res.status(201).json({ message: "User registered", id: this.lastID });
     }
   );
 });
 
-// Login
+// LOGIN
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
   db.get("SELECT id, password FROM users WHERE username = ?", [username], (err, row) => {
-    if (!row || row.password !== password) return res.status(401).json({ message: "Invalid login" });
-    res.cookie("uid", String(row.id), { httpOnly: true, signed: true, sameSite: "lax", maxAge: 604800000 });
-    res.json({ message: "OK" });
+    if (!row || row.password !== password) return res.status(401).json({ message: "Invalid credentials" });
+    res.cookie("uid", String(row.id), { httpOnly: true, signed: true, sameSite: "lax", maxAge: 7*24*60*60*1000 });
+    return res.json({ message: "Login OK" });
   });
 });
 
-// Logout
 app.post("/logout", (req, res) => {
   res.clearCookie("uid");
   res.json({ message: "Logged out" });
 });
 
-// Profile
+// PROFILE
 app.get("/api/me", requireAuth, (req, res) => {
   db.get("SELECT name, account, username, phone, bank FROM users WHERE id = ?", [req.userId], (err, row) => {
     if (!row) return res.status(404).json({ message: "User not found" });
@@ -108,104 +105,48 @@ app.get("/api/me", requireAuth, (req, res) => {
   });
 });
 
-// List others for transfer dropdown
+// USERS LIST
 app.get("/api/users", requireAuth, (req, res) => {
-  db.all("SELECT id, name, username, bank FROM users WHERE id != ? ORDER BY name", [req.userId], (err, rows) => {
+  db.all("SELECT id, name, username, bank, account FROM users WHERE id != ?", [req.userId], (err, rows) => {
     res.json(rows || []);
   });
 });
 
-// 🔥 TRANSFER — FIXED & CORRECT
+// ✅ TRANSACTION (WITH CRYPTO BRAIN DECISION)
 app.post("/api/transfer", requireAuth, (req, res) => {
   const { toUser, amount } = req.body;
-  const fromUserId = req.userId;
-
-  db.get("SELECT * FROM users WHERE id = ?", [fromUserId], (err, sender) => {
-    if (!sender) return res.status(500).json({ error: "Sender missing" });
-
+  
+  db.get("SELECT * FROM users WHERE id = ?", [req.userId], (err, sender) => {
     db.get("SELECT * FROM users WHERE username = ?", [toUser], async (err2, receiver) => {
-      if (!receiver) return res.status(404).json({ error: "Receiver not found" });
+      const CRYPTO_BRAIN = "https://nonnephritic-amiyah-calvus.ngrok-free.dev";
 
-      const CRYPTO = "https://nonnephritic-amiyah-calvus.ngrok-free.dev";
-      let policy;
-
-      try {
-        const r = await fetch(`${CRYPTO}/select?from_bank=${sender.bank}&to_bank=${receiver.bank}`);
-        policy = await r.json();
-      } catch {
-        return res.status(500).json({ error: "Crypto Brain unreachable — check Raspberry + ngrok." });
-      }
-
-      const mode = policy.suggested_sw_algo || "Unknown";
-      const hw = policy.suggested_hw_class || "Unknown";
-      const txType = policy.transaction_type || "External";
-      const now = new Date().toISOString();
+      const r = await fetch(`${CRYPTO_BRAIN}/select?from_bank=${sender.bank}&to_bank=${receiver.bank}`);
+      const p = await r.json();
 
       db.run(
-        `INSERT INTO transactions (ts, senderId, receiverId, amount, title, channel)
-         VALUES (?, ?, ?, ?, ?, ?)`,
-        [now, sender.id, receiver.id, amount, `Transfer (${txType})`, `${mode} / ${hw}`],
-        function (err3) {
-          if (err3) return res.status(500).json({ error: "DB insert failed" });
-
-          broadcastTx({
-            id: this.lastID,
-            ts: now,
-            senderId: sender.id,
-            receiverId: receiver.id,
-            senderName: sender.name,
-            receiverName: receiver.name,
-            amount,
-            direction: "OUT",
-            channel: `${mode} / ${hw}`
-          });
-
-          res.json({ success: true, encryption_used: mode, hardware_class: hw, transaction_type: txType });
-        }
+        `INSERT INTO transactions (ts, senderId, receiverId, amount, mode, hw_class, tx_type)
+         VALUES (datetime('now'), ?, ?, ?, ?, ?, ?)`,
+        [sender.id, receiver.id, amount, p.suggested_sw_algo, p.suggested_hw_class, p.transaction_type],
+        () => res.json({ success: true, encryption_used: p.suggested_sw_algo })
       );
     });
   });
 });
 
-// 🔥 DASHBOARD TX LIST — FIXED
+// GET USER TX
 app.get("/api/transactions", requireAuth, (req, res) => {
-  const sql = `
-    SELECT t.id, t.ts, t.senderId, t.receiverId, t.amount,
-           CASE WHEN senderId = ? THEN 'OUT' ELSE 'IN' END AS direction,
-           us.name AS senderName, ur.name AS receiverName,
-           t.channel
+  db.all(`
+    SELECT t.*, us.name AS senderName, ur.name AS receiverName
     FROM transactions t
     JOIN users us ON us.id = t.senderId
     JOIN users ur ON ur.id = t.receiverId
-    WHERE senderId = ? OR receiverId = ?
-    ORDER BY datetime(ts) DESC
-  `;
-  db.all(sql, [req.userId, req.userId, req.userId], (err, rows) => res.json(rows || []));
+    WHERE t.senderId = ? OR t.receiverId = ?
+    ORDER BY t.id DESC
+  `, [req.userId, req.userId], (err, rows) => res.json(rows));
 });
 
-// 🔥 LIVE UPDATES (SSE)
-const clients = new Set();
-app.get("/api/tx/stream", requireAuth, (req, res) => {
-  res.setHeader("Content-Type", "text/event-stream");
-  res.setHeader("Cache-Control", "no-cache");
-  res.flushHeaders();
-  const client = { res, uid: req.userId };
-  clients.add(client);
-  req.on("close", () => clients.delete(client));
-});
+// Static
+app.use(express.static(path.join(__dirname, "frontend")));
+app.get("/", (req, res) => res.sendFile(path.join(__dirname, "frontend", "login", "login.html")));
 
-function broadcastTx(tx) {
-  for (const c of clients) {
-    if (c.uid === tx.senderId || c.uid === tx.receiverId) {
-      c.res.write(`event: tx\ndata:${JSON.stringify(tx)}\n\n`);
-    }
-  }
-}
-
-// Routes
-app.get("/", (req, res) => res.sendFile(path.join(process.cwd(), "frontend/login/login.html")));
-app.get("/dashboard", requireAuth, (req, res) =>
-  res.sendFile(path.join(process.cwd(), "frontend/dashboard/dashboard.html"))
-);
-
-app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
