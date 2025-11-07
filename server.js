@@ -304,3 +304,48 @@ app.get(["/dashboard", "/dashboard/"], (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+
+const RPI = "https://nonnephritic-amiyah-calvus.ngrok-free.dev"; // <--- Hardcode here
+
+app.get("/api/banks-csv", async (req, res) => {
+  try {
+    const fetch = (await import("node-fetch")).default;
+    const r = await fetch(`${RPI}/banks`);
+    const text = await r.text();
+    res.set("Content-Type", "text/csv");
+    res.send(text);
+  } catch {
+    res.status(500).send("RPI offline");
+  }
+});
+
+app.get("/api/policies-csv", async (req, res) => {
+  try {
+    const fetch = (await import("node-fetch")).default;
+    const r = await fetch(`${RPI}/policies`);
+    const text = await r.text();
+    res.set("Content-Type", "text/csv");
+    res.send(text);
+  } catch {
+    res.status(500).send("RPI offline");
+  }
+});
+
+const logsFile = path.join(__dirname, "logs", "transactions.jsonl");
+
+app.get("/api/security-logs", requireAuth, (req, res) => {
+  try {
+    if (!fs.existsSync(logsFile)) return res.json([]);
+
+    const text = fs.readFileSync(logsFile, "utf8").trim();
+    if (!text) return res.json([]);
+
+    const rows = text.split(/\r?\n/).map(line => JSON.parse(line));
+
+    // Return newest first
+    return res.json(rows.reverse());
+  } catch (err) {
+    console.error("Log read error:", err);
+    return res.status(500).json({ message: "Log read error" });
+  }
+});

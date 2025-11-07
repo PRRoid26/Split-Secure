@@ -73,105 +73,75 @@
   </div>
 
   <script>
-    async function logout() {
-      try {
-        await fetch("/logout", { method: "POST", credentials: "same-origin" });
-        window.location.href = "/";
-      } catch {
-        window.location.href = "/";
-      }
-    }
+    const el = id => document.getElementById(id);
 
     async function fetchMe() {
-      const res = await fetch("/api/me", {
-        method: "GET",
-        credentials: "same-origin",
-        headers: { Accept: "application/json" }
-      });
-      if (res.status === 401) { window.location.href = "/"; return null; }
-      if (!res.ok) throw new Error("Failed to fetch profile");
-      const data = await res.json();
-      document.getElementById("profileName").textContent = data.name || "";
-      document.getElementById("profileAcct").textContent = data.account || "";
-      document.getElementById("profileUsername").textContent = data.username || "";
-      document.getElementById("profilePhone").textContent = data.phone || "";
-      document.getElementById("profileBank").textContent = data.bank || "";
-      return data;
+      const r = await fetch("/api/me",{credentials:"same-origin"});
+      if (r.status===401) { location.href="/"; return; }
+      const d = await r.json();
+      el("profileName").textContent = d.name;
+      el("profileAcct").textContent = d.account;
+      el("profileUsername").textContent = d.username;
+      el("profilePhone").textContent = d.phone;
+      el("profileBank").textContent = d.bank;
+      return d.bank;
     }
 
-    async function fetchTransactions() {
-      const res = await fetch("/api/transactions", {
-        method: "GET",
-        credentials: "same-origin",
-        headers: { Accept: "application/json" }
-      });
-      if (res.status === 401) { window.location.href = "/"; return []; }
-      if (!res.ok) throw new Error("Failed to fetch transactions");
+    async function fetchSecurityLogs() {
+      const res = await fetch("/api/security-logs",{credentials:"same-origin"});
+      if (!res.ok) return [];
       return res.json();
     }
 
-    function renderTxList(rows) {
-      const c = document.getElementById("txContainer");
+    function renderSecurityLogs(rows, myBank) {
+      const c = el("txContainer");
       c.innerHTML = "";
-      if (!rows || rows.length === 0) {
-        const p = document.createElement("p");
-        p.className = "text-muted";
-        p.textContent = "No transaction history.";
-        c.appendChild(p);
+
+      if (!rows.length) {
+        c.innerHTML = `<p class="text-muted">No transactions yet.</p>`;
         return;
       }
+
       rows.forEach(r => {
+        const outgoing = r.senderBank === myBank;
+        const title = outgoing
+          ? `You → ${r.receiverLabel}`
+          : `${r.senderName} → You`;
+        
+        const amt = outgoing ? `- ₹${r.amount}` : `+ ₹${r.amount}`;
+        const amtClass = outgoing ? "text-danger" : "text-success";
+        const modeBadge =
+          `<span class="badge bg-dark ms-2">${r.mode}</span>`;
+
         const card = document.createElement("div");
-        card.className = "card mb-2 tx-item";
-        const incoming = r.direction === "IN";
-        const title = incoming ? `Received from ${r.senderName}` : `Paid to ${r.receiverName}`;
-        const amt = (incoming ? "+ " : "- ") + "₹" + Number(Math.abs(r.amount)).toLocaleString("en-IN");
-        const amtClass = incoming ? "text-success" : "text-danger";
-        const dateStr = new Date(r.ts).toLocaleString();
+        card.className = "card mb-2";
         card.innerHTML = `
           <div class="card-body py-2 px-3 d-flex justify-content-between">
             <div>
-              <div class="fw-semibold">${title}</div>
-              <small class="text-muted">${dateStr} • ${r.channel}</small>
+              <div class="fw-semibold">${title} ${modeBadge}</div>
+              <small class="text-muted">${new Date(r.timestamp).toLocaleString()}</small>
             </div>
-            <div class="${amtClass} fw-semibold">${amt}</div>
+            <div class="${amtClass} fw-bold">${amt}</div>
           </div>`;
         c.appendChild(card);
       });
     }
 
-    // Keep a local cache
-    let txCache = [];
-
-    function connectSSE() {
-      const src = new EventSource("/api/tx/stream");
-      src.addEventListener("tx", async () => {
-        try {
-          const rows = await fetchTransactions();
-          txCache = rows;
-          renderTxList(txCache);
-        } catch (e) {
-          console.error(e);
-        }
-      });
-      src.addEventListener("ping", () => {});
-      src.onerror = () => {
-        try { src.close(); } catch {}
-        setTimeout(connectSSE, 3000);
-      };
-    }
-
-    document.addEventListener("DOMContentLoaded", async () => {
-      try {
-        const me = await fetchMe();
-        if (!me) return;
-        txCache = await fetchTransactions();
-        renderTxList(txCache);
-        connectSSE();
-      } catch (e) {
-        console.error(e);
+    document.addEventListener("DOMContentLoaded", async ()=>{
+      const myBank = await fetchMe();
+      async function refresh() {
+        const logs = await fetchSecurityLogs();
+        renderSecurityLogs(logs, myBank);
       }
+      refresh();
+      setInterval(refresh, 3000); // auto-refresh every 3s
     });
+
+    el("logoutBtn").onclick = async () => {
+      await fetch("/logout",{method:"POST",credentials:"same-origin"});
+      location.href="/";
+    };
   </script>
+
 </body>
 </html>

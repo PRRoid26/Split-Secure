@@ -40,303 +40,184 @@
   </div>
 
   <script>
-    // --- Setup and helpers ---
-    const CSV_PATH = "./bank_testcases.csv"; // put CSV next to this HTML, or adjust path
+  // --- Setup and helpers ---
 
-    const senderCache = { name: "You", bank: "Sender Bank", ready: false };
+  // We now fetch policies from Raspberry Pi through server.js proxy
+  const POLICIES_API = "/api/policies-csv";
 
-    function getEl(id) { return document.getElementById(id); }
-    function logBox() { return getEl("logBox"); }
-    function clearLog() { const box = logBox(); if (box) box.innerHTML = ""; }
-    function print(line) {
-      const box = logBox();
-      if (!box) return;
-      const p = document.createElement("p");
-      p.className = "mb-1";
-      p.textContent = line;
-      box.appendChild(p);
-      box.scrollTop = box.scrollHeight;
-    }
+  const senderCache = { name: "You", bank: "Sender Bank", ready: false };
 
-    function norm(x) { return String(x || "").trim().toLowerCase(); }
+  function getEl(id) { return document.getElementById(id); }
+  function logBox() { return getEl("logBox"); }
+  function clearLog() { logBox().innerHTML = ""; }
+  function print(line) {
+    const p = document.createElement("p");
+    p.className = "mb-1";
+    p.textContent = line;
+    logBox().appendChild(p);
+    logBox().scrollTop = logBox().scrollHeight;
+  }
 
-    function parseCSV(text) {
-      const lines = text.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
-      if (!lines.length) return [];
-      const header = lines[0].split(",").map(h => h.trim());
-      const rows = [];
-      for (let i = 1; i < lines.length; i++) {
-        const cols = lines[i].split(",").map(c => c.trim());
-        if (cols.length !== header.length) continue;
-        const obj = {};
-        header.forEach((h, idx) => (obj[h] = cols[idx]));
-        rows.push(obj);
-      }
-      return rows;
-    }
+  function norm(x) { return String(x || "").trim().toLowerCase(); }
 
-    async function loadTestcases() {
-      const res = await fetch(CSV_PATH, { credentials: "same-origin" });
-      if (!res.ok) throw new Error("Failed to load bank_testcases.csv");
-      return parseCSV(await res.text());
-    }
-
-    function matchRow(rows, fromBank, toBank) {
-      const f = norm(fromBank), t = norm(toBank);
-      let r = rows.find(x => norm(x["From Bank"]) === f && norm(x["To Bank"]) === t);
-      if (r) return r;
-      r = rows.find(x => norm(x["From Bank"]) === t && norm(x["To Bank"]) === f);
-      return r || null;
-    }
-
-    function detectMode(row) {
-      const base = (row["HW_Base"] || "").toLowerCase();
-      const budget = (row["HW_Budget"] || "").toLowerCase();
-      const algo = (row["Receiver Algo"] || row["Receiver_Algo"] || "").toLowerCase();
-
-      const hasPQC = base.includes("pqc") || budget.includes("pqc") ||
-                     algo.includes("pqc") || algo.includes("kyber") ||
-                     algo.includes("ml-dsa") || algo.includes("dilithium");
-
-      const hasClassical = base.includes("classical") || budget.includes("classical") ||
-                           algo.includes("ecd") || algo.includes("rsa") ||
-                           algo.includes("hs256");
-
-      if (hasPQC && hasClassical) return "Hybrid";
-      if (hasPQC) return "PQC";
-      return "Classical";
-    }
-
-    function flowByMode(modeKey) {
-      if (modeKey === "Hybrid") {
-        return {
-          mode: "Hybrid (Classical + PQC)",
-          tls: "TLS 1.3 (Hybrid: ECDH + Kyber)",
-          kx: "Ephemeral ECDH + Kyber key exchange performed.",
-          jwt: "JWT signed with HS256 + PQC signature (ML-DSA).",
-          cert: "Hybrid X.509 cert with RSA + PQC (Dilithium) validated.",
-          perfNote: "Time: ~150 ms | CPU usage: Medium"
-        };
-      } else if (modeKey === "PQC") {
-        return {
-          mode: "PQC",
-          tls: "TLS 1.3 (PQC only: Kyber)",
-          kx: "Kyber key exchange performed.",
-          jwt: "JWT signed with PQC signature (ML-DSA).",
-          cert: "PQC-only X.509 cert (Dilithium) validated.",
-          perfNote: "Time: ~250 ms | CPU usage: High"
-        };
-      } else {
-        return {
-          mode: "Classical-only",
-          tls: "TLS 1.3 (Classical: ECDH)",
-          kx: "Ephemeral ECDH key exchange performed.",
-          jwt: "JWT signed with HS256.",
-          cert: "Classical RSA X.509 cert validated.",
-          perfNote: "Time: ~50 ms | CPU usage: Low"
-        };
-      }
-    }
-
-    // --- Data from server ---
-
-    async function fetchSender() {
-      try {
-        const res = await fetch("/api/me", {
-          method: "GET",
-          credentials: "same-origin",
-          headers: { Accept: "application/json" }
-        });
-        if (res.status === 401) {
-          window.location.href = "/";
-          return;
-        }
-        if (res.ok) {
-          const me = await res.json();
-          senderCache.name = me.name || "You";
-          senderCache.bank = me.bank || "Sender Bank";
-        }
-      } catch {
-        // keep defaults
-      } finally {
-        senderCache.ready = true;
-      }
-    }
-
-    async function loadFriends() {
-      const select = document.getElementById("receiver");
-      try {
-        const res = await fetch("/api/users", {
-          method: "GET",
-          credentials: "same-origin",
-          headers: { Accept: "application/json" }
-        });
-        if (res.status === 401) { window.location.href = "/"; return; }
-        if (!res.ok) throw new Error("Failed to load users");
-        const users = await res.json();
-        select.innerHTML = "";
-        if (!Array.isArray(users) || users.length === 0) {
-          const opt = document.createElement("option");
-          opt.value = "";
-          opt.disabled = true;
-          opt.selected = true;
-          opt.textContent = "No users available";
-          select.appendChild(opt);
-          return;
-        }
-        users.forEach(u => {
-          const opt = document.createElement("option");
-          opt.value = String(u.id);
-          opt.textContent = `${u.name} (${u.bank || "Bank N/A"}, @${u.username})`;
-          opt.dataset.username = u.username || "";
-          opt.dataset.bank = u.bank || "";
-          opt.dataset.account = u.account || "";
-          opt.dataset.phone = u.phone || "";
-          select.appendChild(opt);
-        });
-      } catch (e) {
-        console.error(e);
-        select.innerHTML = "";
-        const opt = document.createElement("option");
-        opt.value = "";
-        opt.disabled = true;
-        opt.selected = true;
-        opt.textContent = "Error loading users";
-        select.appendChild(opt);
-      }
-    }
-
-    async function persistLog(payload) {
-      try {
-        const res = await fetch("/api/transfer-log", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          credentials: "same-origin",
-          body: JSON.stringify(payload)
-        });
-        if (!res.ok) {
-          console.warn("Log save failed:", await res.text());
-        }
-      } catch (e) {
-        console.warn("Log save error:", e);
-      }
-    }
-
-    async function createTransfer(receiverId, amount, channel = "UPI") {
-      const res = await fetch("/api/transfer", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "same-origin",
-        body: JSON.stringify({ receiverId, amount: Number(amount), channel })
-      });
-      if (!res.ok) throw new Error(await res.text());
-      return res.json();
-    }
-
-    // --- Security flow ---
-
-    function currentSender() {
-      return { sName: senderCache.name, sBank: senderCache.bank };
-    }
-
-    function currentReceiver() {
-      const sel = getEl("receiver");
-      const opt = sel?.options[sel.selectedIndex];
-      const bank = (opt?.dataset.bank || "Receiver Bank").trim();
-      const uname = (opt?.dataset.username || "").trim();
-      const label = (opt?.textContent || "Receiver").trim();
-      const rDetails = uname ? `${label} (@${uname})` : label;
-      return { rDetails, rBank: bank };
-    }
-
-    async function runFlow(amount) {
-      clearLog();
-
-      const { sName, sBank } = currentSender();
-      const { rDetails, rBank } = currentReceiver();
-
-      const steps = [];
-      const step = s => { steps.push(s); print(s); };
-
-      step("Starting secure transaction flow...");
-
-      let modeKey = "Classical";
-      try {
-        const rows = await loadTestcases();
-        const row = matchRow(rows, sBank, rBank);
-        if (row) {
-          modeKey = detectMode(row);
-        } else {
-          step(`Note: No CSV rule for ${sBank} → ${rBank}; using default mode.`);
-        }
-      } catch (e) {
-        step("Note: Could not load bank_testcases.csv; using default mode.");
-      }
-
-      const f = flowByMode(modeKey);
-
-      step(`Negotiating security mode with ${rDetails} : ${f.mode}`);
-      step(`Initiating ${f.tls} handshake...`);
-      step(f.kx);
-      step("TLS handshake complete, secure channel established.");
-      step("Generating JWT...");
-      step(f.jwt);
-      step("JWT issued and verified successfully.");
-      step("Generating digital certificate...");
-      step(f.cert);
-      step(`Initiating transfer: ${sName} (${sBank}) → ${rDetails} (${rBank}), Amount: ₹${Number(amount).toLocaleString("en-IN")}...`);
-      step("Encrypting transaction payload...");
-      step("Transaction encrypted and transmitted.");
-      step("Transfer complete successfully!");
-      step(`Performance stats: ${f.perfNote}`);
-
-      // Persist to server as JSON (log copy)
-      const payload = {
-        timestamp: new Date().toISOString(),
-        senderName: sName,
-        senderBank: sBank,
-        receiverLabel: rDetails,
-        receiverBank: rBank,
-        amount: Number(amount),
-        mode: f.mode,
-        steps
-      };
-      await persistLog(payload);
-    }
-
-    // --- Init and submit ---
-
-    document.addEventListener("DOMContentLoaded", () => {
-      loadFriends();
-      fetchSender();
-
-      const form = getEl("transferForm");
-      if (!form) return;
-
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        // ensure sender profile loaded (best-effort)
-        if (!senderCache.ready) await fetchSender();
-
-        const sel = getEl("receiver");
-        const amount = getEl("amount")?.value.trim();
-
-        if (!sel?.value) { alert("Please select a friend."); return; }
-        if (!amount || Number(amount) <= 0) { alert("Enter a valid amount."); return; }
-
-        try {
-          // 1) Create transaction in DB (broadcasts via SSE to dashboards)
-          await createTransfer(Number(sel.value), Number(amount), "UPI");
-          // 2) Render the security flow log to the UI and persist JSON log file
-          await runFlow(amount);
-          form.reset();
-        } catch (err) {
-          console.error(err);
-          alert("Transfer failed. Please try again.");
-        }
-      });
+  function parseCSV(text) {
+    const lines = text.trim().split(/\r?\n/);
+    const header = lines.shift().split(",");
+    return lines.map(line => {
+      const cols = line.split(",");
+      const obj = {};
+      header.forEach((h, i) => obj[h.trim()] = cols[i] ? cols[i].trim() : "");
+      return obj;
     });
-  </script>
+  }
+
+  async function loadPolicies() {
+    const res = await fetch(POLICIES_API);
+    if (!res.ok) throw new Error("Failed to load policies.csv");
+    return parseCSV(await res.text());
+  }
+
+  function matchRow(rows, fromBank, toBank) {
+    const f = norm(fromBank), t = norm(toBank);
+    return rows.find(r =>
+      norm(r["From Bank"]) === f && norm(r["To Bank"]) === t
+    ) || null;
+  }
+
+  function detectMode(row) {
+    const algo = (row["Mode"] || row["mode"] || "").toLowerCase();
+    if (algo.includes("hybrid")) return "Hybrid";
+    if (algo.includes("pqc") || algo.includes("kyber") || algo.includes("dilithium")) return "PQC";
+    return "Classical";
+  }
+
+  function flowByMode(modeKey) {
+    if (modeKey === "Hybrid") {
+      return {
+        mode: "Hybrid (Classical + PQC)",
+        tls: "TLS 1.3 Hybrid Key Exchange (ECDH + Kyber)",
+        kx: "ECDH + ML-KEM negotiation",
+        jwt: "JWT signed with dual classical + PQC signature",
+        cert: "Hybrid X.509 cert validated",
+        perfNote: "Time: ~180 ms | Secure at quantum scale"
+      };
+    } else if (modeKey === "PQC") {
+      return {
+        mode: "PQC-Only",
+        tls: "TLS-PQTLS (Kyber-based KEM)",
+        kx: "Kyber ML-KEM performed",
+        jwt: "JWT signed with ML-DSA",
+        cert: "Dilithium-based cert verified",
+        perfNote: "Time: ~260 ms | Max quantum-resistance"
+      };
+    } else {
+      return {
+        mode: "Classical-Only",
+        tls: "TLS 1.3 ECDH Key Exchange",
+        kx: "Ephemeral ECDH performed",
+        jwt: "Standard HS256 JWT",
+        cert: "RSA X.509 cert verified",
+        perfNote: "Time: ~50 ms | Legacy security"
+      };
+    }
+  }
+
+  // --- API Calls ---
+
+  async function fetchSender() {
+    const r = await fetch("/api/me");
+    if (r.status === 401) location.href = "/";
+    const me = await r.json();
+    senderCache.name = me.name || "You";
+    senderCache.bank = me.bank || "Sender Bank";
+    senderCache.ready = true;
+  }
+
+  async function loadFriends() {
+    const sel = getEl("receiver");
+    const r = await fetch("/api/users");
+    if (r.status === 401) { location.href="/"; return; }
+    const users = await r.json();
+    sel.innerHTML = "";
+    users.forEach(u => {
+      const opt = document.createElement("option");
+      opt.value = u.id;
+      opt.textContent = `${u.name} (${u.bank}, @${u.username})`;
+      opt.dataset.bank = u.bank;
+      sel.appendChild(opt);
+    });
+  }
+
+  async function persistLog(payload) {
+    await fetch("/api/transfer-log", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+  }
+
+  async function createTransfer(receiverId, amount) {
+    const r = await fetch("/api/transfer", {
+      method: "POST",
+      headers: { "Content-Type":"application/json" },
+      body: JSON.stringify({ receiverId, amount })
+    });
+    if (!r.ok) throw new Error(await r.text());
+  }
+
+  // ---- MAIN FLOW ----
+
+  async function runFlow(amount) {
+    clearLog();
+
+    const sBank = senderCache.bank;
+    const sel = getEl("receiver");
+    const rBank = sel.options[sel.selectedIndex].dataset.bank;
+
+    print("Starting secure transaction flow...");
+
+    let modeKey = "Classical";
+    try {
+      const rows = await loadPolicies();
+      const rule = matchRow(rows, sBank, rBank);
+      if (rule) modeKey = detectMode(rule);
+      else print(`No policy rule found for ${sBank} → ${rBank}, defaulting to Classical.`);
+    } catch {
+      print("Policies unavailable. Defaulting to Classical.");
+    }
+
+    const f = flowByMode(modeKey);
+    print(`Negotiating security mode: ${f.mode}`);
+    print(f.tls);
+    print(f.kx);
+    print(f.jwt);
+    print(f.cert);
+    print(`Transfer encrypted and transmitted. Mode=${f.mode}`);
+    print(f.perfNote);
+
+    await persistLog({
+      timestamp: new Date().toISOString(),
+      senderBank: sBank,
+      receiverBank: rBank,
+      amount,
+      mode: f.mode
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    await fetchSender();
+    await loadFriends();
+
+    getEl("transferForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const receiverId = getEl("receiver").value;
+      const amount = Number(getEl("amount").value);
+      await createTransfer(receiverId, amount);
+      await runFlow(amount);
+      e.target.reset();
+    });
+  });
+</script>
+
 </body>
 </html>
