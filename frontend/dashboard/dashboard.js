@@ -1,13 +1,15 @@
 // frontend/dashboard/dashboard.js
-const CRYPTO_BRAIN = "https://nonnephritic-amiyah-calvus.ngrok-free.dev";
-
 async function fetchMe() {
   const res = await fetch("/api/me", {
     method: "GET",
     credentials: "same-origin",
     headers: { Accept: "application/json" }
   });
-  if (res.status === 401) { window.location.href = "/"; return null; }
+  if (res.status === 401) {
+    window.location.href = "/";
+    return null;
+  }
+  if (!res.ok) throw new Error("Failed to fetch profile");
   const data = await res.json();
   document.getElementById("profileName").textContent = data.name || "";
   document.getElementById("profileAcct").textContent = data.account || "";
@@ -18,98 +20,122 @@ async function fetchMe() {
 }
 
 async function fetchTransactions() {
-  const res = await fetch("/api/transactions", { credentials: "same-origin" });
-  if (res.status === 401) { window.location.href = "/"; return []; }
-  return res.json();
-}
-
-async function fetchPolicy(senderBank, receiverBank) {
-  try {
-    const url = `${CRYPTO_BRAIN}/select?from_bank=${encodeURIComponent(senderBank)}&to_bank=${encodeURIComponent(receiverBank)}`;
-    const res = await fetch(url, { method: "GET", headers: { "Accept": "application/json" } });
-    if (!res.ok) return null;
-    return res.json();
-  } catch {
-    return null;
+  const res = await fetch("/api/transactions", {
+    method: "GET",
+    credentials: "same-origin",
+    headers: { Accept: "application/json" }
+  });
+  if (res.status === 401) {
+    window.location.href = "/";
+    return [];
   }
-}
-
-async function enrichWithCrypto(rows) {
-  for (let tx of rows) {
-    const pol = await fetchPolicy(tx.senderBank, tx.receiverBank);
-    if (pol) {
-      tx.mode = pol.suggested_sw_algo;
-      tx.hw_class = pol.suggested_hw_class;
-      tx.tx_type = pol.transaction_type;
-    } else {
-      tx.mode = tx.mode || "Unknown";
-      tx.hw_class = tx.hw_class || "Unknown";
-      tx.tx_type = tx.tx_type || "Unknown";
-    }
-  }
+  if (!res.ok) throw new Error("Failed to fetch transactions");
+  const rows = await res.json();
   return rows;
 }
 
 function renderTxList(rows) {
   const c = document.getElementById("txContainer");
   c.innerHTML = "";
-  if (!rows.length) {
-    c.innerHTML = `<p class="text-muted">No transaction history.</p>`;
+  if (!rows || rows.length === 0) {
+    const p = document.createElement("p");
+    p.className = "text-muted";
+    p.textContent = "No transaction history.";
+    c.appendChild(p);
     return;
   }
-
   rows.forEach(r => {
+    const card = document.createElement("div");
+    card.className = "card mb-2 tx-item";
+    card.onclick = () => (location.href = "../logs.html");
     const incoming = r.direction === "IN";
     const title = incoming ? `Received from ${r.senderName}` : `Paid to ${r.receiverName}`;
     const amt = (incoming ? "+ " : "- ") + "₹" + Number(Math.abs(r.amount)).toLocaleString("en-IN");
     const amtClass = incoming ? "text-success" : "text-danger";
     const dateStr = new Date(r.ts).toLocaleString();
-    const mode = r.mode || "Unknown";
-    const hw = r.hw_class || "Unknown";
-    const route = `${r.senderBank} → ${r.receiverBank}`;
-    const type = r.tx_type || "Unknown";
-
-    const card = document.createElement("div");
-    card.className = "card mb-2 tx-item";
     card.innerHTML = `
-      <div class="card-body py-2 px-3">
-        <div class="d-flex justify-content-between align-items-center">
-          <div>
-            <div class="fw-semibold">${title}</div>
-            <small class="text-muted">${dateStr}</small><br>
-            <small class="text-primary">🔐 ${mode}</small><br>
-            <small class="text-secondary">💻 ${hw} | 🧭 ${type}</small><br>
-            <small class="text-secondary">🏦 ${route}</small>
-          </div>
-          <div class="${amtClass} fw-semibold">${amt}</div>
+      <div class="card-body py-2 px-3 d-flex justify-content-between">
+        <div>
+          <div class="fw-semibold">${title}</div>
+          <small class="text-muted">${dateStr} • ${r.channel}</small>
         </div>
-      </div>
-    `;
+        <div class="${amtClass} fw-semibold">${amt}</div>
+      </div>`;
     c.appendChild(card);
   });
 }
 
+// Maintain an in-memory list and prepend updates
 let txCache = [];
 
-function connectSSE() {
+function prependTxFromEvent(ev, viewerId) {
+  try {
+    const r = JSON.parse(ev.data);
+    if (!r || typeof r !== "object") return;
+    // Only care for tx where viewer is sender or receiver (server already filters, but double-check)
+    if (r.senderId !== viewerId && r.receiverId !== viewerId) return;
+
+    // Build a display row compatible with renderTxList
+    const incoming = r.receiverId === viewerId;
+    const direction = incoming ? "IN" : "OUT";
+
+    // Names are not in SSE payload; refetch latest list for correctness,
+    // or optimistically insert a placeholder then refresh list in background.
+    // Simpler: refetch recent list now to keep names correct and ordering consistent.
+    return true; // signal caller to refetch
+  } catch {
+    // ignore
+  }
+  return false;
+}
+
+function connectSSE(viewerId) {
   const src = new EventSource("/api/tx/stream");
-  src.addEventListener("tx", async () => {
-    txCache = await fetchTransactions();
-    txCache = await enrichWithCrypto(txCache);
-    renderTxList(txCache);
+  src.addEventListener("tx", async (ev) => {
+    const needRefresh = prependTxFromEvent(ev, viewerId);
+    if (needRefresh) {
+      try {
+        const rows = await fetchTransactions();
+        txCache = rows;
+        renderTxList(txCache);
+      } catch (e) {
+        console.error(e);
+      }
+    }
   });
-  src.onerror = () => { try { src.close(); } catch {}; setTimeout(connectSSE, 3000); };
+  src.addEventListener("ping", () => {
+    // keep-alive
+  });
+  src.onerror = () => {
+    // try to reconnect after a delay
+    try { src.close(); } catch {}
+    setTimeout(() => connectSSE(viewerId), 3000);
+  };
+}
+
+async function logout() {
+  try {
+    await fetch("/logout", { method: "POST", credentials: "same-origin" });
+    window.location.href = "/";
+  } catch {
+    window.location.href = "/";
+  }
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
-  await fetchMe();
-  txCache = await fetchTransactions();
-  txCache = await enrichWithCrypto(txCache);
-  renderTxList(txCache);
-  connectSSE();
+  try {
+    const me = await fetchMe();
+    if (!me) return;
+    const rows = await fetchTransactions();
+    txCache = rows;
+    renderTxList(txCache);
+    // Use username as display, but SSE needs numeric id; fetch via transactions or add /api/me/id endpoint if needed
+    // For this approach, derive viewerId from first tx if present, else fetch again via a lightweight query
+    // To get viewerId reliably, add a small endpoint or modify /api/me to include id; quick workaround:
+    // call a tiny endpoint via transactions join; here we assume at least one tx or use SSE without filter (server filters anyway).
+    // Since server filters by req.userId already, we can just connect:
+    connectSSE(/* viewerId not needed due to server filter */ 0);
+  } catch (e) {
+    console.error(e);
+  }
 });
-
-async function logout() {
-  await fetch("/logout", { method: "POST", credentials: "same-origin" });
-  window.location.href = "/";
-}

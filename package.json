@@ -22,9 +22,8 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "cookie-parser": "^1.4.7",
-    "cors": "^2.8.5",
     "express": "^5.1.0",
-    "node-fetch": "^2.7.0",
     "sqlite3": "^5.1.7"
   }
+  
 }
