@@ -1,31 +1,33 @@
 // server.js
-const express = require("express");
-const sqlite3 = require("sqlite3").verbose();
-const path = require("path");
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
-const fs = require("fs");
-const os = require("os");
+import fetch from "node-fetch"; // <--- IMPORTANT
+import express from "express";
+import sqlite3 from "sqlite3";
+import path from "path";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import fs from "fs";
+import os from "os";
 
+const dbPath = path.resolve("users.db");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cookieParser("dev-secret-change-me")); // signed cookies
+app.use(cookieParser("dev-secret-change-me"));
+app.use(express.static(path.join(process.cwd(), "frontend")));
 
-// DB
-const dbPath = path.resolve(__dirname, "users.db");
+// Connect DB
 const db = new sqlite3.Database(dbPath, (err) => {
-  if (err) console.error("Error opening database:", err.message);
-  else console.log("Connected to SQLite database.");
+  if (err) console.error("DB Error:", err.message);
+  else console.log("✅ Connected to SQLite database.");
 });
 
-// Create tables if not exists
+// Create tables if missing
 db.serialize(() => {
-  db.run(
-    `CREATE TABLE IF NOT EXISTS users (
+  db.run(`
+    CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       surname TEXT NOT NULL,
@@ -36,271 +38,174 @@ db.serialize(() => {
       bank TEXT NOT NULL,
       encryptionVersion TEXT NOT NULL,
       hardwareVersion TEXT NOT NULL
-    )`,
-    (err) => {
-      if (err) console.error("Table creation error (users):", err.message);
-    }
-  );
+    )
+  `);
 
-  db.run(
-    `CREATE TABLE IF NOT EXISTS transactions (
+  db.run(`
+    CREATE TABLE IF NOT EXISTS transactions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       ts TEXT NOT NULL,
       senderId INTEGER NOT NULL,
       receiverId INTEGER NOT NULL,
       amount REAL NOT NULL,
-      direction TEXT NOT NULL,      -- 'IN' or 'OUT' relative to the viewer, computed per query
       title TEXT NOT NULL,
-      channel TEXT NOT NULL,        -- e.g., 'UPI','IMPS','NEFT'
+      channel TEXT NOT NULL,
       FOREIGN KEY(senderId) REFERENCES users(id),
       FOREIGN KEY(receiverId) REFERENCES users(id)
-    )`,
-    (err) => {
-      if (err) console.error("Table creation error (transactions):", err.message);
+    )
+  `);
+});
+
+// Auth
+function requireAuth(req, res, next) {
+  const uid = req.signedCookies?.uid;
+  if (!uid) return res.status(401).json({ message: "Not authenticated" });
+  req.userId = Number(uid);
+  next();
+}
+
+// Register
+app.post("/register", (req, res) => {
+  const { name, surname, username, password, account, phone, bank, encryptionVersion, hardwareVersion } = req.body;
+  if (!name || !surname || !username || !password || !account || !phone || !bank)
+    return res.status(400).json({ message: "Missing fields" });
+
+  db.run(
+    `INSERT INTO users (name, surname, username, password, account, phone, bank, encryptionVersion, hardwareVersion)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [name, surname, username, password, account, phone, bank, encryptionVersion, hardwareVersion],
+    function (err) {
+      if (err) {
+        if (err.message.includes("UNIQUE")) return res.status(400).json({ message: "Username already exists" });
+        return res.status(500).json({ message: "DB error" });
+      }
+      res.status(201).json({ message: "User registered", id: this.lastID });
     }
   );
 });
 
-// Auth middleware
-function requireAuth(req, res, next) {
-  const uid = req.signedCookies?.uid;
-  if (!uid) return res.status(401).json({ message: "Not authenticated" });
-  const val = parseInt(uid, 10);
-  if (Number.isNaN(val)) {
-    res.clearCookie("uid");
-    return res.status(401).json({ message: "Not authenticated" });
-  }
-  req.userId = val;
-  next();
-}
-
-// Simple login/register/profile
-app.post("/register", (req, res) => {
-  const {
-    name, surname, username, password, account, phone, bank, encryptionVersion, hardwareVersion,
-  } = req.body;
-
-  if (!name || !surname || !username || !password || !account || !phone || !bank || !encryptionVersion || !hardwareVersion) {
-    return res.status(400).json({ message: "Missing required fields" });
-  }
-
-  const sql = `INSERT INTO users
-    (name, surname, username, password, account, phone, bank, encryptionVersion, hardwareVersion)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-
-  db.run(sql,
-    [name, surname, username, password, account, phone, bank, encryptionVersion, hardwareVersion],
-    function (err) {
-      if (err) {
-        if (err.message.includes("UNIQUE constraint failed")) {
-          return res.status(400).json({ message: "Username already exists" });
-        }
-        console.error("Insert error:", err.message);
-        return res.status(500).json({ message: "Database error" });
-      }
-      return res.status(201).json({ message: "User registered successfully", id: this.lastID });
-    });
-});
-
+// Login
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
-  if (!username || !password) return res.status(400).json({ message: "Missing username or password" });
-
-  const sql = "SELECT id, username, password FROM users WHERE username = ?";
-  db.get(sql, [username], (err, row) => {
-    if (err) {
-      console.error("Query error:", err.message);
-      return res.status(500).json({ message: "Database error" });
-    }
-    if (!row) return res.status(401).json({ message: "Invalid credentials" });
-
-    const ok = password === row.password; // NOTE: replace with bcrypt soon
-    if (!ok) return res.status(401).json({ message: "Invalid credentials" });
-
-    res.cookie("uid", String(row.id), {
-      httpOnly: true,
-      signed: true,
-      sameSite: "lax",
-      // secure: true, // on HTTPS
-      maxAge: 7 * 24 * 60 * 60 * 1000
-    });
-    return res.status(200).json({ message: "Login successful", id: row.id });
+  db.get("SELECT id, password FROM users WHERE username = ?", [username], (err, row) => {
+    if (!row || row.password !== password) return res.status(401).json({ message: "Invalid login" });
+    res.cookie("uid", String(row.id), { httpOnly: true, signed: true, sameSite: "lax", maxAge: 604800000 });
+    res.json({ message: "OK" });
   });
 });
 
+// Logout
 app.post("/logout", (req, res) => {
   res.clearCookie("uid");
-  res.status(200).json({ message: "Logged out" });
+  res.json({ message: "Logged out" });
 });
 
+// Profile
 app.get("/api/me", requireAuth, (req, res) => {
-  const sql = "SELECT name, account, username, phone, bank FROM users WHERE id = ?";
-  db.get(sql, [req.userId], (err, row) => {
-    if (err) {
-      console.error("Profile query error:", err.message);
-      return res.status(500).json({ message: "Database error" });
-    }
-    if (!row) {
-      res.clearCookie("uid");
-      return res.status(404).json({ message: "User not found" });
-    }
-    return res.status(200).json(row);
+  db.get("SELECT name, account, username, phone, bank FROM users WHERE id = ?", [req.userId], (err, row) => {
+    if (!row) return res.status(404).json({ message: "User not found" });
+    res.json(row);
   });
 });
 
+// List others for transfer dropdown
 app.get("/api/users", requireAuth, (req, res) => {
-  const sql = "SELECT id, name, username, bank, account, phone FROM users WHERE id != ? ORDER BY name ASC";
-  db.all(sql, [req.userId], (err, rows) => {
-    if (err) {
-      console.error("Users list query error:", err.message);
-      return res.status(500).json({ message: "Database error" });
-    }
-    return res.status(200).json(rows || []);
+  db.all("SELECT id, name, username, bank FROM users WHERE id != ? ORDER BY name", [req.userId], (err, rows) => {
+    res.json(rows || []);
   });
 });
 
-// Save transaction log JSONL (existing)
-app.post("/api/transfer-log", requireAuth, (req, res) => {
-  try {
-    const {
-      timestamp, senderName, senderBank, receiverLabel, receiverBank,
-      amount, mode, steps
-    } = req.body || {};
-    if (!timestamp || !senderName || !senderBank || !receiverLabel || !receiverBank ||
-        typeof amount !== "number" || !mode || !Array.isArray(steps)) {
-      return res.status(400).json({ message: "Missing or invalid fields" });
-    }
-    const dir = path.join(__dirname, "logs");
-    const file = path.join(dir, "transactions.jsonl");
-    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-    const record = {
-      userId: req.userId, timestamp, senderName, senderBank, receiverLabel,
-      receiverBank, amount, mode, steps
-    };
-    fs.appendFile(file, JSON.stringify(record) + os.EOL, (err) => {
-      if (err) {
-        console.error("Log write error:", err.message);
-        return res.status(500).json({ message: "Failed to write log" });
-      }
-      return res.status(200).json({ message: "Log saved" });
-    });
-  } catch (e) {
-    console.error("Log save exception:", e);
-    return res.status(500).json({ message: "Server error" });
-  }
-});
-
-// Minimal transaction API: create + list
-// Create a transaction (simulate transfer) and notify via SSE
+// 🔥 TRANSFER — FIXED & CORRECT
 app.post("/api/transfer", requireAuth, (req, res) => {
-  const { receiverId, amount, channel } = req.body || {};
-  const amt = Number(amount);
-  if (!receiverId || !amt || amt <= 0) {
-    return res.status(400).json({ message: "Missing or invalid fields" });
-  }
+  const { toUser, amount } = req.body;
+  const fromUserId = req.userId;
 
-  const ts = new Date().toISOString();
-  const chan = channel || "UPI";
-  const title = "Peer transfer";
+  db.get("SELECT * FROM users WHERE id = ?", [fromUserId], (err, sender) => {
+    if (!sender) return res.status(500).json({ error: "Sender missing" });
 
-  // Insert one row referencing sender and receiver
-  const sql = `INSERT INTO transactions (ts, senderId, receiverId, amount, direction, title, channel)
-               VALUES (?, ?, ?, ?, ?, ?, ?)`;
-  // direction stored as 'OUT' (relative to sender); will be computed per viewer in queries
-  db.run(sql, [ts, req.userId, receiverId, amt, 'OUT', title, chan], function (err) {
-    if (err) {
-      console.error("Insert tx error:", err.message);
-      return res.status(500).json({ message: "Database error" });
-    }
+    db.get("SELECT * FROM users WHERE username = ?", [toUser], async (err2, receiver) => {
+      if (!receiver) return res.status(404).json({ error: "Receiver not found" });
 
-    // Notify all SSE clients
-    broadcastTx({
-      id: this.lastID,
-      ts, senderId: req.userId, receiverId, amount: amt, title, channel: chan
+      const CRYPTO = "https://nonnephritic-amiyah-calvus.ngrok-free.dev";
+      let policy;
+
+      try {
+        const r = await fetch(`${CRYPTO}/select?from_bank=${sender.bank}&to_bank=${receiver.bank}`);
+        policy = await r.json();
+      } catch {
+        return res.status(500).json({ error: "Crypto Brain unreachable — check Raspberry + ngrok." });
+      }
+
+      const mode = policy.suggested_sw_algo || "Unknown";
+      const hw = policy.suggested_hw_class || "Unknown";
+      const txType = policy.transaction_type || "External";
+      const now = new Date().toISOString();
+
+      db.run(
+        `INSERT INTO transactions (ts, senderId, receiverId, amount, title, channel)
+         VALUES (?, ?, ?, ?, ?, ?)`,
+        [now, sender.id, receiver.id, amount, `Transfer (${txType})`, `${mode} / ${hw}`],
+        function (err3) {
+          if (err3) return res.status(500).json({ error: "DB insert failed" });
+
+          broadcastTx({
+            id: this.lastID,
+            ts: now,
+            senderId: sender.id,
+            receiverId: receiver.id,
+            senderName: sender.name,
+            receiverName: receiver.name,
+            amount,
+            direction: "OUT",
+            channel: `${mode} / ${hw}`
+          });
+
+          res.json({ success: true, encryption_used: mode, hardware_class: hw, transaction_type: txType });
+        }
+      );
     });
-
-    return res.status(201).json({ message: "Transfer recorded", id: this.lastID });
   });
 });
 
-// List recent transactions for the logged-in user (merged IN/OUT)
+// 🔥 DASHBOARD TX LIST — FIXED
 app.get("/api/transactions", requireAuth, (req, res) => {
-  // Compose list where viewer is either sender or receiver; compute direction and label
   const sql = `
-    SELECT
-      t.id, t.ts, t.senderId, t.receiverId, t.amount, t.title, t.channel,
-      CASE WHEN t.senderId = ? THEN 'OUT' ELSE 'IN' END as direction,
-      us.name as senderName, ur.name as receiverName
+    SELECT t.id, t.ts, t.senderId, t.receiverId, t.amount,
+           CASE WHEN senderId = ? THEN 'OUT' ELSE 'IN' END AS direction,
+           us.name AS senderName, ur.name AS receiverName,
+           t.channel
     FROM transactions t
     JOIN users us ON us.id = t.senderId
     JOIN users ur ON ur.id = t.receiverId
-    WHERE t.senderId = ? OR t.receiverId = ?
-    ORDER BY datetime(t.ts) DESC
-    LIMIT 20
+    WHERE senderId = ? OR receiverId = ?
+    ORDER BY datetime(ts) DESC
   `;
-  db.all(sql, [req.userId, req.userId, req.userId], (err, rows) => {
-    if (err) {
-      console.error("Fetch tx error:", err.message);
-      return res.status(500).json({ message: "Database error" });
-    }
-    res.status(200).json(rows || []);
-  });
+  db.all(sql, [req.userId, req.userId, req.userId], (err, rows) => res.json(rows || []));
 });
 
-// Server-Sent Events (SSE) for realtime tx updates
+// 🔥 LIVE UPDATES (SSE)
 const clients = new Set();
 app.get("/api/tx/stream", requireAuth, (req, res) => {
-  res.set({
-    "Content-Type": "text/event-stream",
-    "Cache-Control": "no-cache",
-    "Connection": "keep-alive"
-  });
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
   res.flushHeaders();
-
-  const client = { res, userId: req.userId };
+  const client = { res, uid: req.userId };
   clients.add(client);
-
-  // Send a ping every 25s to keep connection open (some proxies time out otherwise)
-  const interval = setInterval(() => {
-    try {
-      res.write(`event: ping\ndata: ${Date.now()}\n\n`);
-    } catch {
-      // ignore
-    }
-  }, 25000);
-
-  req.on("close", () => {
-    clearInterval(interval);
-    clients.delete(client);
-  });
+  req.on("close", () => clients.delete(client));
 });
 
-// Broadcast a tx event to all connected users that are party to the tx
 function broadcastTx(tx) {
-  for (const client of clients) {
-    if (client.userId === tx.senderId || client.userId === tx.receiverId) {
-      const payload = JSON.stringify(tx);
-      try {
-        client.res.write(`event: tx\ndata: ${payload}\n\n`);
-      } catch {
-        // ignore broken client
-      }
+  for (const c of clients) {
+    if (c.uid === tx.senderId || c.uid === tx.receiverId) {
+      c.res.write(`event: tx\ndata:${JSON.stringify(tx)}\n\n`);
     }
   }
 }
 
-// Static
-app.use(express.static(path.join(__dirname, "frontend")));
+// Routes
+app.get("/", (req, res) => res.sendFile(path.join(process.cwd(), "frontend/login/login.html")));
+app.get("/dashboard", requireAuth, (req, res) =>
+  res.sendFile(path.join(process.cwd(), "frontend/dashboard/dashboard.html"))
+);
 
-// Routes to pages
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "login", "login.html"));
-});
-
-app.get(["/dashboard", "/dashboard/"], (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "dashboard", "dashboard.html"));
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
