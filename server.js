@@ -337,23 +337,29 @@ app.get("/api/policies-csv", async (req, res) => {
 const logsFile = path.join(__dirname, "logs", "transactions.jsonl");
 
 app.get("/api/security-logs", requireAuth, (req, res) => {
-  try {
+  db.get("SELECT name, bank FROM users WHERE id = ?", [req.userId], (err, me) => {
+    if (err || !me) return res.json([]);
+
+    const userBank = me.bank;
+    const userName = me.name;
+
     if (!fs.existsSync(logsFile)) return res.json([]);
 
     const lines = fs.readFileSync(logsFile, "utf8").trim().split(/\r?\n/);
     const allLogs = lines.map(l => JSON.parse(l));
 
-    const userBank = req.user.bank;
-
-    const filtered = allLogs.filter(
-      log => log.senderBank === userBank || log.receiverBank === userBank
+    const filtered = allLogs.filter(log =>
+      log.senderBank === userBank ||
+      log.receiverBank === userBank ||
+      log.senderName === userName ||
+      log.receiverLabel.includes(userName)
     );
 
-    res.json(filtered.reverse()); // newest first
-  } catch (err) {
-    res.status(500).json({ message: "Log read error" });
-  }
+    res.json(filtered.reverse());
+  });
 });
+
+
 
 app.post("/api/log-csv", requireAuth, (req, res) => {
   const { timestamp, senderName, receiverName, amount, mode, steps } = req.body;
