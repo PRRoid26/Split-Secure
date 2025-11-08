@@ -63,45 +63,72 @@
 
           <div id="txContainer" class="tx-scroll"></div>
 
-          <div class="text-end mt-2">
-            <!-- Optional link to a full logs page -->
-            <!-- <a class="btn btn-sm btn-outline-secondary" href="../logs.html">Open full logs</a> -->
-          </div>
+          <div class="text-end mt-2"></div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- SCRIPTS -->
   <script>
+  async function loadProfile() {
+    try {
+      const res = await fetch("/api/me", { credentials: "include" });
+      if (!res.ok) { window.location.href = "/"; return; }
+
+      const me = await res.json();
+      document.getElementById("profileName").textContent = me.name;
+      document.getElementById("profileAcct").textContent = me.account;
+      document.getElementById("profileUsername").textContent = me.username;
+      document.getElementById("profilePhone").textContent = me.phone;
+      document.getElementById("profileBank").textContent = me.bank;
+    } catch (err) { console.error("Profile load failed:", err); }
+  }
+
   async function loadLogs() {
-    const res = await fetch("/api/logs");
+    const res = await fetch("/api/transactions", { credentials: "include" });
     const logs = await res.json();
     const box = document.getElementById("txContainer");
     box.innerHTML = "";
 
-    logs.forEach(log => {
-      const stepsFormatted = log.steps.map(s => `<div>${s}</div>`).join("");
+    logs.forEach(tx => {
+      const isOutgoing = tx.direction === "OUT";
+      const label = isOutgoing
+        ? `${tx.senderName} → ${tx.receiverName}`
+        : `${tx.receiverName} → ${tx.senderName}`;
+
+      const color = isOutgoing ? "text-danger" : "text-success";
+      const amountPrefix = isOutgoing ? "-" : "+";
 
       box.innerHTML += `
-        <div class="card mb-2">
+        <div class="card mb-2 tx-item">
           <div class="card-body">
-            <strong>${log.user} → ${log.friend}</strong>
-            <span class="badge bg-dark">${log.mode}</span>
-            <div class="text-muted">${new Date(log.timestamp).toLocaleString()}</div>
-            <div class="fw-bold mt-1">₹${log.amount}</div>
-            <details class="mt-2">
-              <summary>Security Details</summary>
-              <div class="mt-2">${stepsFormatted}</div>
-            </details>
+            <div class="d-flex justify-content-between">
+              <div>
+                <strong>${label}</strong>
+                <small class="d-block text-muted">${new Date(tx.ts).toLocaleString()}</small>
+              </div>
+              <div class="fw-bold ${color}">
+                ${amountPrefix} ₹${Number(tx.amount).toLocaleString("en-IN")}
+              </div>
+            </div>
           </div>
-        </div>`;
+        </div>
+      `;
     });
   }
 
-  setInterval(loadLogs, 3000);
-  loadLogs();
-  </script>
+  async function logout() {
+    await fetch("/logout", { method: "POST", credentials: "include" });
+    window.location.href = "/";
+  }
 
+  document.addEventListener("DOMContentLoaded", () => {
+    loadProfile();
+    loadLogs();
+    setInterval(loadLogs, 3000);
+  });
+  </script>
 
 </body>
 </html>
