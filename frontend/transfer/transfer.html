@@ -79,17 +79,29 @@
 
   function matchRow(rows, fromBank, toBank) {
     const f = norm(fromBank), t = norm(toBank);
-    return rows.find(r =>
-      norm(r["From Bank"]) === f && norm(r["To Bank"]) === t
-    ) || null;
+    
+    // Exact direction
+    let r = rows.find(x => norm(x["From_Bank"]) === f && norm(x["To_Bank"]) === t);
+    if (r) return r;
+
+    // Reverse direction fallback (important!)
+    r = rows.find(x => norm(x["From_Bank"]) === t && norm(x["To_Bank"]) === f);
+    return r || null;
   }
 
   function detectMode(row) {
-    const algo = (row["Mode"] || row["mode"] || "").toLowerCase();
+    const algo = (row["Policy_SW_Algo"] || "").toLowerCase();
+
     if (algo.includes("hybrid")) return "Hybrid";
-    if (algo.includes("pqc") || algo.includes("kyber") || algo.includes("dilithium")) return "PQC";
+    if (
+        algo.includes("kyber") ||
+        algo.includes("ml-kem") ||
+        algo.includes("falcon") ||
+        algo.includes("dilithium")
+    ) return "PQC";
     return "Classical";
   }
+
 
   function flowByMode(modeKey) {
     if (modeKey === "Hybrid") {

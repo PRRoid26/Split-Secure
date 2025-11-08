@@ -337,15 +337,18 @@ app.get("/api/security-logs", requireAuth, (req, res) => {
   try {
     if (!fs.existsSync(logsFile)) return res.json([]);
 
-    const text = fs.readFileSync(logsFile, "utf8").trim();
-    if (!text) return res.json([]);
+    const lines = fs.readFileSync(logsFile, "utf8").trim().split(/\r?\n/);
+    const allLogs = lines.map(l => JSON.parse(l));
 
-    const rows = text.split(/\r?\n/).map(line => JSON.parse(line));
+    const userBank = req.user.bank;
 
-    // Return newest first
-    return res.json(rows.reverse());
+    const filtered = allLogs.filter(
+      log => log.senderBank === userBank || log.receiverBank === userBank
+    );
+
+    res.json(filtered.reverse()); // newest first
   } catch (err) {
-    console.error("Log read error:", err);
-    return res.status(500).json({ message: "Log read error" });
+    res.status(500).json({ message: "Log read error" });
   }
 });
+
