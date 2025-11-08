@@ -22,6 +22,12 @@ const db = new sqlite3.Database(dbPath, (err) => {
   else console.log("Connected to SQLite database.");
 });
 
+import fs from "fs";
+import path from "path";
+
+const logCSV = path.join(__dirname, "log.csv");
+
+
 // Create tables if not exists
 db.serialize(() => {
   db.run(
@@ -352,3 +358,42 @@ app.get("/api/security-logs", requireAuth, (req, res) => {
   }
 });
 
+app.post("/api/log-csv", requireAuth, (req, res) => {
+  const { timestamp, senderName, receiverName, amount, mode, steps } = req.body;
+
+  const row = `"${timestamp}","${senderName}","${receiverName}",${amount},"${mode}","${steps}"\n`;
+
+  // Create header if file does not exist
+  if (!fs.existsSync(logCSV)) {
+    fs.writeFileSync(logCSV,
+      "Timestamp,User,Friend,Amount,Mode,Steps\n",
+      "utf8"
+    );
+  }
+
+  fs.appendFileSync(logCSV, row, "utf8");
+  res.sendStatus(200);
+});
+
+app.get("/api/logs", requireAuth, (req, res) => {
+  if (!fs.existsSync(logCSV)) return res.json([]);
+
+  const text = fs.readFileSync(logCSV, "utf8").trim().split(/\r?\n/);
+  const header = text.shift().split(",");
+
+  const rows = text.map(line => {
+    const cols = line.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/); // safe CSV split
+    return {
+      timestamp: cols[0].replace(/"/g, ""),
+      user: cols[1].replace(/"/g, ""),
+      friend: cols[2].replace(/"/g, ""),
+      amount: cols[3],
+      mode: cols[4].replace(/"/g, ""),
+      steps: cols[5].replace(/"/g, "").split(" || ")
+    };
+  });
+
+  // Show only logs where logged in user is involved
+  const myName = req.user.name;
+  res.json(rows.filter(r => r.user === myName || r.friend.includes(myName)).reverse());
+});

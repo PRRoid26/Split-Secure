@@ -73,75 +73,35 @@
   </div>
 
   <script>
-    const el = id => document.getElementById(id);
+  async function loadLogs() {
+    const res = await fetch("/api/logs");
+    const logs = await res.json();
+    const box = document.getElementById("txContainer");
+    box.innerHTML = "";
 
-    async function fetchMe() {
-      const r = await fetch("/api/me",{credentials:"same-origin"});
-      if (r.status===401) { location.href="/"; return; }
-      const d = await r.json();
-      el("profileName").textContent = d.name;
-      el("profileAcct").textContent = d.account;
-      el("profileUsername").textContent = d.username;
-      el("profilePhone").textContent = d.phone;
-      el("profileBank").textContent = d.bank;
-      return d.bank;
-    }
+    logs.forEach(log => {
+      const stepsFormatted = log.steps.map(s => `<div>${s}</div>`).join("");
 
-    async function fetchSecurityLogs() {
-      const res = await fetch("/api/security-logs",{credentials:"same-origin"});
-      if (!res.ok) return [];
-      return res.json();
-    }
-
-    function renderSecurityLogs(rows, myBank) {
-      const c = el("txContainer");
-      c.innerHTML = "";
-
-      if (!rows.length) {
-        c.innerHTML = `<p class="text-muted">No transactions yet.</p>`;
-        return;
-      }
-
-      rows.forEach(r => {
-        const outgoing = r.senderBank === myBank;
-        const title = outgoing
-          ? `You → ${r.receiverLabel}`
-          : `${r.senderName} → You`;
-        
-        const amt = outgoing ? `- ₹${r.amount}` : `+ ₹${r.amount}`;
-        const amtClass = outgoing ? "text-danger" : "text-success";
-        const modeBadge =
-          `<span class="badge bg-dark ms-2">${r.mode}</span>`;
-
-        const card = document.createElement("div");
-        card.className = "card mb-2";
-        card.innerHTML = `
-          <div class="card-body py-2 px-3 d-flex justify-content-between">
-            <div>
-              <div class="fw-semibold">${title} ${modeBadge}</div>
-              <small class="text-muted">${new Date(r.timestamp).toLocaleString()}</small>
-            </div>
-            <div class="${amtClass} fw-bold">${amt}</div>
-          </div>`;
-        c.appendChild(card);
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", async ()=>{
-      const myBank = await fetchMe();
-      async function refresh() {
-        const logs = await fetchSecurityLogs();
-        renderSecurityLogs(logs, myBank);
-      }
-      refresh();
-      setInterval(refresh, 3000); // auto-refresh every 3s
+      box.innerHTML += `
+        <div class="card mb-2">
+          <div class="card-body">
+            <strong>${log.user} → ${log.friend}</strong>
+            <span class="badge bg-dark">${log.mode}</span>
+            <div class="text-muted">${new Date(log.timestamp).toLocaleString()}</div>
+            <div class="fw-bold mt-1">₹${log.amount}</div>
+            <details class="mt-2">
+              <summary>Security Details</summary>
+              <div class="mt-2">${stepsFormatted}</div>
+            </details>
+          </div>
+        </div>`;
     });
+  }
 
-    el("logoutBtn").onclick = async () => {
-      await fetch("/logout",{method:"POST",credentials:"same-origin"});
-      location.href="/";
-    };
+  setInterval(loadLogs, 3000);
+  loadLogs();
   </script>
+
 
 </body>
 </html>

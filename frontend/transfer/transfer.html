@@ -160,11 +160,18 @@
     });
   }
 
-  async function persistLog(payload) {
-    await fetch("/api/transfer-log", {
+  async function persistLog({ timestamp, senderName, receiverName, amount, mode, steps }) {
+    await fetch("/api/log-csv", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+      body: JSON.stringify({
+        timestamp,
+        senderName,
+        receiverName,
+        amount,
+        mode,
+        steps: steps.join(" || ") // store steps in one cell, separated by ||
+      })
     });
   }
 
@@ -208,12 +215,13 @@
     print(f.perfNote);
 
     await persistLog({
-      timestamp: new Date().toISOString(),
-      senderBank: sBank,
-      receiverBank: rBank,
-      amount,
-      mode: f.mode
-    });
+    timestamp: new Date().toISOString(),
+    senderName: sName,
+    receiverName: rDetails,
+    amount: Number(amount),
+    mode: f.mode,
+    steps
+  });
   }
 
   document.addEventListener("DOMContentLoaded", async () => {
