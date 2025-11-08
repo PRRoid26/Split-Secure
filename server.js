@@ -22,9 +22,6 @@ const db = new sqlite3.Database(dbPath, (err) => {
   else console.log("Connected to SQLite database.");
 });
 
-import fs from "fs";
-import path from "path";
-
 const logCSV = path.join(__dirname, "log.csv");
 
 
