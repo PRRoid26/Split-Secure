@@ -1,6 +1,4 @@
 
-
-```markdown
 # 🚀 Split-Secure  
 ### *Adaptive, Post-Quantum Secure Transaction Tunnel for Inter-Bank Communications*
 
