@@ -128,8 +128,10 @@ curl "http://localhost:8080/select?from_bank=ICICI&to_bank=HDFC"
 
 ## 🧑‍💻 Authors
 
-**Prathamesh Shetty** — Researcher, AUV & PQC Systems Design
-
+**Dr. Ashwini Rao** — IT Dept. HOD @ NMIMS MPSTME
+**Avani Bhat** — Literature reviewer, Robotics enthusiast, Cryptographic understanding, HTML CSS
+**Prathamesh Shetty** — Researcher, AUV & PQC Backend Systems Design
+**Shruti Bhandare** — Researcher, AUV & PQC Backend Systems Design
 ---
 
 ## 🛡️ License
