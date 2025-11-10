@@ -1,0 +1,10 @@
+From Bank,To Bank,Enterprise,Infra,Budget,Legacy,Deployment,Sender Algo,Receiver Algo,HW_Base,HW_Budget,HW_Infra,BankID,BankName,Region,LatencySLA,AvgCTBytes,PrefKeySize,SecurityLevel,LUT,BRAM,DSP,FREQ,BaseLatency,Suggested_SW_Algo,Suggested_HW_Class,CryptoPref,UpdatedAt,From_Bank,To_Bank,Transaction_Type,Policy_SW_Algo,Policy_HW_Class,PolicyUpdatedAt
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,AXIS,HDFC,External,HYBRID(X25519 + ML-KEM-768),hybrid_hw,1762518640.0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,HDFC,AXIS,External,RSA-2048/ECDSA,legacy_hw,1762518640.0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,ICICI,AXIS,External,Kyber768/Falcon,pqc_hw,1762518654.0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,AXIS,ICICI,External,HYBRID(X25519 + ML-KEM-768),hybrid_hw,1762518654.0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,SBI,ICICI,External,RSA-2048/ECDSA,legacy_hw,1762518748.0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,ICICI,SBI,External,Kyber768/Falcon,pqc_hw,1762518748.0
+,,,,,,,,,,,,HDFC,HDFC Bank,,0.015,1300.0,2048.0,128.0,15000.0,48.0,110.0,160.0,5e-05,dilithium3,mid_perf,auto,1762518756.0,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,HDFC,SBI,External,RSA-2048/ECDSA,legacy_hw,1762518756.0
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,SBI,HDFC,External,RSA-2048/ECDSA,legacy_hw,1762518756.0

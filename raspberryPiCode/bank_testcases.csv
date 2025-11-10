@@ -1,0 +1,12 @@
+BankID,BankName,Region,LatencySLA,AvgCTBytes,PrefKeySize,SecurityLevel,LUT,BRAM,DSP,FREQ,BaseLatency,Suggested_SW_Algo,Suggested_HW_Class,HW_Base,HW_Budget,HW_Infra,Enterprise,Infra,Budget,Legacy,Deployment,CryptoPref,UpdatedAt,From_Bank,To_Bank,Transaction_Type,Policy_SW_Algo,Policy_HW_Class,PolicyUpdatedAt
+,,,,,,,,,,,,,,,,,,,,,,,,SBI,SBI,Internal,RSA-2048/ECDSA,legacy_hw,1762522999.0
+,,,,,,,,,,,,,,,,,,,,,,,,HDFC,HDFC,Internal,dilithium3,mid_perf,1762523008.0
+,,,,,,,,,,,,,,,,,,,,,,,,HDFC,SBI,External,RSA-2048/ECDSA,legacy_hw,1762523008.0
+,,,,,,,,,,,,,,,,,,,,,,,,SBI,HDFC,External,RSA-2048/ECDSA,legacy_hw,1762523008.0
+,,,,,,,,,,,,,,,,,,,,,,,,ICICI,ICICI,Internal,dilithium3,mid_perf,1762523016.0
+,,,,,,,,,,,,,,,,,,,,,,,,ICICI,HDFC,External,dilithium3,mid_perf,1762523016.0
+,,,,,,,,,,,,,,,,,,,,,,,,HDFC,ICICI,External,dilithium3,mid_perf,1762523016.0
+AXIS,Axis Bank,,0.01,800.0,2048.0,96.0,8000.0,32.0,80.0,140.0,8e-05,HYBRID(X25519 + ML-KEM-768),hybrid_hw,,,,,,,,,hybrid,1762523024.0,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,AXIS,AXIS,Internal,HYBRID(X25519 + ML-KEM-768),hybrid_hw,1762523024.0
+,,,,,,,,,,,,,,,,,,,,,,,,AXIS,ICICI,External,HYBRID(X25519 + ML-KEM-768),hybrid_hw,1762523024.0
+,,,,,,,,,,,,,,,,,,,,,,,,ICICI,AXIS,External,Kyber768/Falcon,pqc_hw,1762523024.0

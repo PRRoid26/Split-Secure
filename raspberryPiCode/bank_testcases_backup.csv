@@ -1,0 +1,9 @@
+BankID,BankName,Region,LatencySLA,AvgCTBytes,PrefKeySize,SecurityLevel,LUT,BRAM,DSP,FREQ,BaseLatency,Suggested_SW_Algo,Suggested_HW_Class,HW_Base,HW_Budget,HW_Infra,Enterprise,Infra,Budget,Legacy,Deployment,CryptoPref,UpdatedAt,From_Bank,To_Bank,Transaction_Type,Policy_SW_Algo,Policy_HW_Class,PolicyUpdatedAt
+,,,,,,,,,,,,,,,,,,,,,,,,AXIS,SBI,External,HYBRID(X25519 + ML-KEM-768),hybrid_hw,1762519307.0
+,,,,,,,,,,,,,,,,,,,,,,,,SBI,AXIS,External,RSA-2048/ECDSA,legacy_hw,1762519307.0
+,,,,,,,,,,,,,,,,,,,,,,,,ICICI,AXIS,External,Kyber768/Falcon,pqc_hw,1762519314.0
+,,,,,,,,,,,,,,,,,,,,,,,,AXIS,ICICI,External,HYBRID(X25519 + ML-KEM-768),hybrid_hw,1762519314.0
+HDFC,HDFC Bank,,0.015,1300.0,2048.0,128.0,12000.0,32.0,96.0,160.0,5e-05,dilithium3,mid_perf,,,,,,,,,auto,1762520061.0,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,HDFC,ICICI,External,dilithium3,mid_perf,1762519321.0
+,,,,,,,,,,,,,,,,,,,,,,,,ICICI,HDFC,External,dilithium3,mid_perf,1762519321.0
+,,,,,,,,,,,,,,,,,,,,,,,,HDFC,HDFC,Internal,dilithium3,mid_perf,1762520061.0

@@ -1,0 +1,5 @@
+BankID,BankName,Region,LatencySLA,AvgCTBytes,PrefKeySize,SecurityLevel,LUT,BRAM,DSP,FREQ,BaseLatency,HW_Base,HW_Budget,HW_Infra,Enterprise,Infra,Budget,Legacy,Deployment,CryptoPref,UpdatedAt
+AXIS,Axis Bank,IN,0.01,800,2048,96,8000,32,80,140,8e-05,legacy_cpu,low,old_dc,,,,,,hybrid,1762524236
+HDFC,HDFC Bank,IN,0.004,1200,3072,192,20000,64,160,200,4e-05,fpga,high,new_dc,,,,,,pqc_only,1762524244
+ICICI,ICICI Bank,IN,0.006,950,2560,128,16000,48,120,180,5e-05,fpga_cpu_combo,enterprise,new_cluster,,,,,,auto,1762524251
+SBI,State Bank of India,IN,0.2,650,1024,80,2000,8,20,60,0.0002,legacy_cpu,low,branch_grid,,,,,,classical_only,1762524257

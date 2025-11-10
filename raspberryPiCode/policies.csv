@@ -1,0 +1,17 @@
+From_Bank,To_Bank,Transaction_Type,Policy_SW_Algo,Policy_HW_Class,PolicyUpdatedAt
+AXIS,AXIS,Internal,HYBRID(X25519 + ML-KEM-768),hybrid_hw,1762524266
+AXIS,HDFC,External,HYBRID(X25519 + ML-KEM-768),hybrid_hw,1762524266
+AXIS,ICICI,External,HYBRID(X25519 + ML-KEM-768),hybrid_hw,1762524266
+AXIS,SBI,External,HYBRID(X25519 + ML-KEM-768),hybrid_hw,1762524266
+HDFC,AXIS,External,Kyber768/Falcon,pqc_hw,1762524266
+HDFC,HDFC,Internal,dilithium3,mid_perf,1762524266
+HDFC,ICICI,External,dilithium3,mid_perf,1762524266
+HDFC,SBI,External,Kyber768/Falcon,pqc_hw,1762524266
+ICICI,AXIS,External,RSA-2048/ECDSA,legacy_hw,1762524266
+ICICI,HDFC,External,RSA-2048/ECDSA,legacy_hw,1762524266
+ICICI,ICICI,Internal,RSA-2048/ECDSA,legacy_hw,1762524266
+ICICI,SBI,External,RSA-2048/ECDSA,legacy_hw,1762524266
+SBI,AXIS,External,RSA-2048/ECDSA,legacy_hw,1762524266
+SBI,HDFC,External,RSA-2048/ECDSA,legacy_hw,1762524266
+SBI,ICICI,External,RSA-2048/ECDSA,legacy_hw,1762524266
+SBI,SBI,Internal,RSA-2048/ECDSA,legacy_hw,1762524266
