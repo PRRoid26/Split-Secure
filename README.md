@@ -138,14 +138,5 @@ MIT License — free to use & modify ✅
 
 ```
 
----
 
-### Want to make your README look **premium**?
-I can now add:
-✅ Shields.io badges  
-✅ Dark mode diagrams  
-✅ Animated architecture flow  
-✅ Paper-style technical abstract  
 
-Just tell me: **Do you want a clean white theme or black cyber theme?** 😎
-```
